@@ -42,17 +42,17 @@ export const Navbar = () => {
       </div>
 
       {/* Main Navigation */}
-      <nav className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+      <nav className="container mx-auto px-4 h-16 overflow-visible">
+        <div className="flex items-center justify-between h-full">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2 -my-4">
             <motion.div
               whileHover={{ scale: 1.05 }}
             >
-              <img 
-                src="/assets/logo.png" 
-                alt="Reliant Integrated Services LTD" 
-                className="h-20 w-auto"
+              <img
+                src="/assets/logo.png"
+                alt="Reliant Integrated Services LTD"
+                className="h-24 w-auto"
               />
             </motion.div>
           </Link>
@@ -63,11 +63,10 @@ export const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`font-medium smooth-transition relative ${
-                  isActive(link.path)
-                    ? 'text-primary'
-                    : 'text-foreground/70 hover:text-primary'
-                }`}
+                className={`font-medium smooth-transition relative ${isActive(link.path)
+                  ? 'text-primary'
+                  : 'text-foreground/70 hover:text-primary'
+                  }`}
               >
                 {link.label}
                 {isActive(link.path) && (
@@ -111,11 +110,10 @@ export const Navbar = () => {
                     key={link.path}
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className={`font-medium py-2 ${
-                      isActive(link.path)
-                        ? 'text-primary'
-                        : 'text-foreground/70'
-                    }`}
+                    className={`font-medium py-2 ${isActive(link.path)
+                      ? 'text-primary'
+                      : 'text-foreground/70'
+                      }`}
                   >
                     {link.label}
                   </Link>
