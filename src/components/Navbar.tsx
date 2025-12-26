@@ -51,7 +51,7 @@ export const Navbar = () => {
               src={logo}
               alt="Reliant Integrated Services LTD"
               whileHover={{ scale: 1.05 }}
-              className="h-12 w-auto"
+              className="h-20 w-auto object-contain"
             />
           </Link>
 
