@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Mail, MapPin, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '@/assets/logo.jpg';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,13 +46,13 @@ export const Navbar = () => {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <motion.div
+          <Link to="/" className="flex items-center">
+            <motion.img
+              src={logo}
+              alt="Reliant Integrated Services LTD"
               whileHover={{ scale: 1.05 }}
-              className="text-2xl font-heading font-bold text-primary"
-            >
-              MoveMates
-            </motion.div>
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
