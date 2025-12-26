@@ -52,7 +52,7 @@ export const Navbar = () => {
               <img 
                 src="/assets/logo.png" 
                 alt="Reliant Integrated Services LTD" 
-                className="h-14 w-auto"
+                className="h-20 w-auto"
               />
             </motion.div>
           </Link>
