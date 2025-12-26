@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Mail, MapPin, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '@/assets/logo.jpg';
+import logo from '@/assets/logo.png';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
