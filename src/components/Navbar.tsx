@@ -48,9 +48,12 @@ export const Navbar = () => {
           <Link to="/" className="flex items-center gap-2">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-2xl font-heading font-bold text-primary"
             >
-              MoveMates
+              <img 
+                src="/assets/logo.png" 
+                alt="Reliant Integrated Services LTD" 
+                className="h-14 w-auto"
+              />
             </motion.div>
           </Link>
 

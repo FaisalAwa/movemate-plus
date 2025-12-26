@@ -8,7 +8,11 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-heading font-bold mb-4">MoveMates</h3>
+            <img 
+              src="/assets/logo.png" 
+              alt="Reliant Integrated Services LTD" 
+              className="h-16 w-auto mb-4 bg-white p-2 rounded"
+            />
             <p className="text-primary-foreground/80 mb-4">
               Your trusted partner for stress-free moving in East London. Professional, reliable, and affordable.
             </p>
