@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Home, Building2, Package, Wrench, Archive, Sofa } from 'lucide-react';
+import { Home, Building2, Package, Wrench, Sofa } from 'lucide-react';
 
 const services = [
   {
@@ -22,11 +22,7 @@ const services = [
     title: 'Furniture Assembly',
     description: 'Expert dismantling and reassembly of furniture. We handle everything with care and precision.',
   },
-  {
-    icon: Archive,
-    title: 'Storage Solutions',
-    description: 'Secure storage facilities for short or long-term needs. Climate-controlled and fully insured.',
-  },
+
   {
     icon: Sofa,
     title: 'Piano & Special Items',

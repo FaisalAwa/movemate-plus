@@ -31,7 +31,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -54,7 +54,7 @@ export default function About() {
             />
           </motion.svg>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -63,7 +63,7 @@ export default function About() {
             className="max-w-3xl mx-auto text-center"
           >
             <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6">
-              About <span className="text-accent">MoveMates</span>
+              About <span className="text-accent">Reliant Integrated Services Ltd</span>
             </h1>
             <p className="text-xl text-primary-foreground/90">
               Your trusted moving partner in East London, dedicated to making every relocation smooth and stress-free.
@@ -87,7 +87,7 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-lg text-muted-foreground">
                 <p>
-                  MoveMates was founded with a simple mission: to make moving easier and more affordable for everyone. Based in East London, we've grown from a small team to become one of the region's most trusted moving companies.
+                  Reliant Integrated Services Ltd was founded with a simple mission: to make moving easier and more affordable for everyone. Based in East London, we've grown from a small team to become one of the region's most trusted moving companies.
                 </p>
                 <p>
                   Our young and dynamic team brings energy, professionalism, and dedication to every job. We understand that moving can be stressful, which is why we've built our business around providing a service that's not just efficient, but also friendly and supportive.
@@ -97,7 +97,7 @@ export default function About() {
                 </p>
               </div>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -108,12 +108,12 @@ export default function About() {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src={aboutImage}
-                  alt="MoveMates team at work"
+                  alt="Reliant Integrated Services team at work"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent" />
               </div>
-              
+
               <motion.div
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}

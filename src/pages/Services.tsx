@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { Home, Building2, Package, Wrench, Archive, Sofa, Truck, Shield } from 'lucide-react';
+import { Home, Building2, Package, Wrench, Sofa, Truck, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const services = [
@@ -21,7 +21,7 @@ const services = [
     icon: Package,
     title: 'Packing Services',
     description: 'Do not have time to pack? Let our professionals handle it. We use high-quality materials and proven techniques to protect your belongings.',
-    features: ['Quality packing materials', 'Fragile item protection', 'Labeling system', 'Custom crating'],
+    features: ['Quality packing materials', 'Fragile item protection', 'Labeling system'],
   },
   {
     icon: Wrench,
@@ -29,12 +29,7 @@ const services = [
     description: 'Expert dismantling and reassembly of all types of furniture. We ensure everything is put back together correctly at your new location.',
     features: ['Professional tools', 'All furniture types', 'No damage guarantee', 'Quick turnaround'],
   },
-  {
-    icon: Archive,
-    title: 'Storage Solutions',
-    description: 'Need extra space? Our secure storage facilities provide the perfect solution for short-term or long-term storage needs.',
-    features: ['Climate controlled', 'Fully insured', '24/7 security', 'Flexible terms'],
-  },
+
   {
     icon: Sofa,
     title: 'Special Items',
@@ -47,7 +42,7 @@ export default function Services() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -62,7 +57,7 @@ export default function Services() {
             className="absolute bottom-20 left-20 w-48 h-48 border-4 border-white/50 rounded-full"
           />
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -102,7 +97,7 @@ export default function Services() {
                     >
                       <Icon className="text-accent" size={32} />
                     </motion.div>
-                    
+
                     <div className="flex-1">
                       <h3 className="text-2xl font-heading font-semibold text-primary mb-3">
                         {service.title}
@@ -148,7 +143,7 @@ export default function Services() {
               Ready to Get Started?
             </h2>
             <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-              Get a free, no-obligation quote today and experience stress-free moving with MoveMates.
+              Get a free, no-obligation quote today and experience stress-free moving with Reliant Integrated Services Ltd.
             </p>
             <Link
               to="/booking"

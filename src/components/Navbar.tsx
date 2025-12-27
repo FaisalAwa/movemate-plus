@@ -28,9 +28,9 @@ export const Navbar = () => {
                 <Phone size={16} />
                 <span>+44 20 1234 5678</span>
               </a>
-              <a href="mailto:info@movemates.uk" className="flex items-center gap-2 hover:text-accent smooth-transition">
+              <a href="mailto:info@reliantservices.co.uk" className="flex items-center gap-2 hover:text-accent smooth-transition">
                 <Mail size={16} />
-                <span>info@movemates.uk</span>
+                <span>info@reliantservices.co.uk</span>
               </a>
             </div>
             <div className="flex items-center gap-2">
@@ -102,17 +102,17 @@ export const Navbar = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden mt-4 pb-4"
+              className="lg:hidden absolute left-0 right-0 top-full bg-primary shadow-xl"
             >
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-2 p-4">
                 {navLinks.map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className={`font-medium py-2 ${isActive(link.path)
-                      ? 'text-primary'
-                      : 'text-foreground/70'
+                    className={`font-medium py-3 px-4 rounded-lg transition-colors ${isActive(link.path)
+                      ? 'bg-accent text-accent-foreground'
+                      : 'text-primary-foreground hover:bg-primary-foreground/10'
                       }`}
                   >
                     {link.label}
@@ -121,7 +121,7 @@ export const Navbar = () => {
                 <Link
                   to="/booking"
                   onClick={() => setIsOpen(false)}
-                  className="bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold text-center"
+                  className="bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold text-center mt-2"
                 >
                   Book Now
                 </Link>

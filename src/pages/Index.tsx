@@ -14,7 +14,7 @@ export default function Index() {
       <Hero />
       <ServicesSection />
       <WhyChooseUs />
-      
+
       {/* Testimonials Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
@@ -47,7 +47,7 @@ export default function Index() {
               {
                 name: 'Emma Wilson',
                 location: 'Bethnal Green, London',
-                text: 'Stress-free moving experience from start to finish. Highly recommend MoveMates to anyone!',
+                text: 'Stress-free moving experience from start to finish. Highly recommend Reliant Integrated Services Ltd to anyone!',
               },
             ].map((review, index) => (
               <motion.div
@@ -78,7 +78,7 @@ export default function Index() {
       <section className="py-20 bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <motion.div
-            animate={{ 
+            animate={{
               scale: [1, 1.2, 1],
               rotate: [0, 180, 360],
             }}
@@ -86,7 +86,7 @@ export default function Index() {
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 border-8 border-white rounded-full"
           />
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -98,7 +98,7 @@ export default function Index() {
               Ready to Make Your Move?
             </h2>
             <p className="text-xl text-primary-foreground/90 mb-8">
-              Get your free quote today and experience the MoveMates difference. Professional, reliable, and affordable moving services in East London.
+              Get your free quote today and experience the Reliant Integrated Services Ltd difference. Professional, reliable, and affordable moving services in East London.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

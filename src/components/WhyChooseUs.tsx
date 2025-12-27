@@ -63,7 +63,7 @@ export const WhyChooseUs = () => {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Why Choose <span className="text-accent">MoveMates</span>?
+            Why Choose <span className="text-accent">Reliant Integrated Services Ltd</span>?
           </h2>
           <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto">
             Your trusted partner for stress-free moving with transparent pricing and guaranteed satisfaction
@@ -89,7 +89,7 @@ export const WhyChooseUs = () => {
                 >
                   <Icon className="text-accent-foreground" size={36} />
                 </motion.div>
-                
+
                 <motion.div
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
@@ -99,7 +99,7 @@ export const WhyChooseUs = () => {
                 >
                   {feature.stat}
                 </motion.div>
-                
+
                 <h3 className="text-2xl font-heading font-semibold mb-3">
                   {feature.title}
                 </h3>

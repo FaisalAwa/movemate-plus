@@ -33,7 +33,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground relative overflow-hidden">
         <motion.div
@@ -48,7 +48,7 @@ export default function Contact() {
             backgroundPosition: '0 0, 30px 30px',
           }}
         />
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -80,7 +80,7 @@ export default function Contact() {
               <h2 className="text-4xl font-heading font-bold text-primary mb-8">
                 Contact Information
               </h2>
-              
+
               <div className="space-y-6">
                 <motion.div
                   whileHover={{ x: 10 }}
@@ -106,8 +106,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-primary mb-1">Email</h3>
-                    <a href="mailto:info@movemates.uk" className="text-muted-foreground hover:text-accent smooth-transition">
-                      info@movemates.uk
+                    <a href="mailto:info@reliantservices.co.uk" className="text-muted-foreground hover:text-accent smooth-transition">
+                      info@reliantservices.co.uk
                     </a>
                   </div>
                 </motion.div>
@@ -157,7 +157,7 @@ export default function Contact() {
                 <h2 className="text-3xl font-heading font-bold text-primary mb-6">
                   Send Us a Message
                 </h2>
-                
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">

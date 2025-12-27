@@ -8,9 +8,9 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <img 
-              src="/assets/logo.png" 
-              alt="Reliant Integrated Services LTD" 
+            <img
+              src="/assets/logo.png"
+              alt="Reliant Integrated Services LTD"
               className="h-16 w-auto mb-4 bg-white p-2 rounded"
             />
             <p className="text-primary-foreground/80 mb-4">
@@ -85,8 +85,8 @@ export const Footer = () => {
               </li>
               <li className="flex items-center gap-2 text-primary-foreground/80">
                 <Mail size={18} />
-                <a href="mailto:info@movemates.uk" className="hover:text-accent smooth-transition">
-                  info@movemates.uk
+                <a href="mailto:info@reliantservices.co.uk" className="hover:text-accent smooth-transition">
+                  info@reliantservices.co.uk
                 </a>
               </li>
               <li className="flex items-start gap-2 text-primary-foreground/80">
@@ -98,7 +98,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-primary-foreground/60">
-          <p>&copy; {new Date().getFullYear()} MoveMates. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Reliant Integrated Services Ltd. All rights reserved.</p>
         </div>
       </div>
     </footer>
