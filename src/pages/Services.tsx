@@ -1,40 +1,45 @@
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { Home, Building2, Package, Wrench, Sofa, Truck, Shield } from 'lucide-react';
+import { Home, Package, Wrench, Trees, Paintbrush, Grid, Truck, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const services = [
   {
     icon: Home,
-    title: 'House Removals',
-    description: 'Whether you are moving to a new flat or relocating your entire household, our experienced team handles every aspect of your residential move with care and professionalism.',
-    features: ['Professional packing', 'Furniture protection', 'Safe transportation', 'Unpacking services'],
-  },
-  {
-    icon: Building2,
-    title: 'Office Removals',
-    description: 'Minimize business downtime with our efficient office relocation services. We understand the importance of getting your business back up and running quickly.',
-    features: ['IT equipment handling', 'After-hours moving', 'Furniture dismantling', 'Setup at new location'],
+    title: 'Moving Services',
+    description: 'Comprehensive moving solutions for homes and offices. We handle your belongings with the utmost care and professionalism.',
+    features: ['Residential moves', 'Office relocations', 'Safe transportation', 'Loading & unloading'],
   },
   {
     icon: Package,
     title: 'Packing Services',
-    description: 'Do not have time to pack? Let our professionals handle it. We use high-quality materials and proven techniques to protect your belongings.',
-    features: ['Quality packing materials', 'Fragile item protection', 'Labeling system'],
+    description: 'Professional packing services using high-quality materials to ensure your items are protected during transit.',
+    features: ['Full packing service', 'Fragile item packing', 'Quality materials', 'Unpacking services'],
   },
   {
     icon: Wrench,
     title: 'Furniture Assembly',
-    description: 'Expert dismantling and reassembly of all types of furniture. We ensure everything is put back together correctly at your new location.',
-    features: ['Professional tools', 'All furniture types', 'No damage guarantee', 'Quick turnaround'],
+    description: 'Expert dismantling and reassembly of all types of furniture. We ensure everything is perfectly set up in your new space.',
+    features: ['IKEA assembly', 'Office furniture', 'Disassembly service', 'Reassembly'],
   },
-
   {
-    icon: Sofa,
-    title: 'Special Items',
-    description: 'Moving pianos, antiques, or other valuable items? Our specialists have the expertise and equipment to handle your most precious possessions.',
-    features: ['Piano moving', 'Antique handling', 'Art transportation', 'Custom solutions'],
+    icon: Grid,
+    title: 'Flooring Services',
+    description: 'Professional flooring installation and maintenance services for residential and commercial properties.',
+    features: ['Laminate flooring', 'Hardwood installation', 'Tiling', 'Floor repairs'],
+  },
+  {
+    icon: Trees,
+    title: 'Landscaping',
+    description: 'Transform your outdoor space with our expert landscaping services. From garden maintenance to complete redesigns.',
+    features: ['Garden maintenance', 'Lawn care', 'Patio installation', 'Garden design'],
+  },
+  {
+    icon: Paintbrush,
+    title: 'Painting & Decorating',
+    description: 'High-quality painting and decorating services to refresh your home or office. Professional finish guaranteed.',
+    features: ['Interior painting', 'Exterior painting', 'Wallpapering', 'Plastering'],
   },
 ];
 

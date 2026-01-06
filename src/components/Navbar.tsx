@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Phone, Mail, MapPin, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import logo from '@/assets/logo.png';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +19,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background shadow-md">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-accent shadow-md">
       {/* Top Bar */}
       <div className="bg-primary text-primary-foreground py-2">
         <div className="container mx-auto px-4">
@@ -50,9 +51,9 @@ export const Navbar = () => {
               whileHover={{ scale: 1.05 }}
             >
               <img
-                src="/assets/logo.png"
+                src={logo}
                 alt="Reliant Integrated Services LTD"
-                className="h-24 w-auto"
+                className="h-16 w-auto"
               />
             </motion.div>
           </Link>
@@ -64,8 +65,8 @@ export const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 className={`font-medium smooth-transition relative ${isActive(link.path)
-                  ? 'text-primary'
-                  : 'text-foreground/70 hover:text-primary'
+                  ? 'text-white font-bold'
+                  : 'text-white/80 hover:text-white'
                   }`}
               >
                 {link.label}
@@ -79,7 +80,7 @@ export const Navbar = () => {
             ))}
             <Link
               to="/booking"
-              className="bg-accent text-accent-foreground px-6 py-2 rounded-lg font-semibold hover:bg-accent/90 smooth-transition"
+              className="bg-white text-accent px-6 py-2 rounded-lg font-semibold hover:bg-white/90 smooth-transition"
             >
               Book Now
             </Link>
@@ -88,7 +89,7 @@ export const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden text-primary"
+            className="lg:hidden text-white"
             aria-label="Toggle menu"
           >
             {isOpen ? <X size={28} /> : <Menu size={28} />}

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
+import logo from '@/assets/logo.png';
 
 export const Footer = () => {
   return (
@@ -9,9 +10,9 @@ export const Footer = () => {
           {/* Company Info */}
           <div>
             <img
-              src="/assets/logo.png"
+              src={logo}
               alt="Reliant Integrated Services LTD"
-              className="h-16 w-auto mb-4 bg-white p-2 rounded"
+              className="h-16 w-auto bg-accent p-2 rounded"
             />
             <p className="text-primary-foreground/80 mb-4">
               Your trusted partner for stress-free moving in East London. Professional, reliable, and affordable.
