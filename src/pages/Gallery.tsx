@@ -10,30 +10,36 @@ const imagesGlob = import.meta.glob('@/assets/**/*.{jpeg,jpg,png,webp}', { eager
 // Helper to process globe results
 const processImages = () => {
   const categories: Record<string, string[]> = {
-    'Furniture Assembly': [],
     'Moving Services': [],
     'Packing Services': [],
+    'Furniture Assembly': [],
+    'Piano and special items': [],
+    'Painting and decorating section': [],
     'Flooring services': [],
     'Landscaping section': [],
-    'Painting and decorating section': [],
+    'Cleaning section': [],
   };
 
   Object.entries(imagesGlob).forEach(([path, module]: [string, any]) => {
     const src = module.default;
 
     // Categorize based on folder name in path
-    if (path.includes('/Furniture Assembly/')) {
-      categories['Furniture Assembly'].push(src);
-    } else if (path.includes('/Moving Services/')) {
+    if (path.includes('/Moving Services/')) {
       categories['Moving Services'].push(src);
     } else if (path.includes('/Packing Services/')) {
       categories['Packing Services'].push(src);
+    } else if (path.includes('/Furniture Assembly/')) {
+      categories['Furniture Assembly'].push(src);
+    } else if (path.includes('/Piano and special items/')) {
+      categories['Piano and special items'].push(src);
+    } else if (path.includes('/Painting and decorating section/')) {
+      categories['Painting and decorating section'].push(src);
     } else if (path.includes('/Flooring services/')) {
       categories['Flooring services'].push(src);
     } else if (path.includes('/Landscaping section/')) {
       categories['Landscaping section'].push(src);
-    } else if (path.includes('/Painting and decorating section/')) {
-      categories['Painting and decorating section'].push(src);
+    } else if (path.includes('/Cleaning section/')) {
+      categories['Cleaning section'].push(src);
     }
   });
 
@@ -42,12 +48,14 @@ const processImages = () => {
 
 // Map raw folder names to display names
 const categoryDisplayNames: Record<string, string> = {
-  'Furniture Assembly': 'Furniture Assembly',
   'Moving Services': 'Moving Services',
   'Packing Services': 'Packing Services',
+  'Furniture Assembly': 'Furniture Assembly',
+  'Piano and special items': 'Piano & Special Items',
+  'Painting and decorating section': 'Painting & Decorating',
   'Flooring services': 'Flooring Services',
   'Landscaping section': 'Landscaping',
-  'Painting and decorating section': 'Painting & Decorating',
+  'Cleaning section': 'Cleaning',
 };
 
 const processedImages = processImages();
@@ -55,11 +63,13 @@ const processedImages = processImages();
 // Order of display
 const categoryKeys = [
   'Moving Services',
-  'Furniture Assembly',
   'Packing Services',
+  'Furniture Assembly',
+  'Piano and special items',
+  'Painting and decorating section',
   'Flooring services',
   'Landscaping section',
-  'Painting and decorating section',
+  'Cleaning section',
 ];
 
 export default function Gallery() {

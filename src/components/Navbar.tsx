@@ -25,18 +25,18 @@ export const Navbar = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center md:justify-between items-center gap-4 text-sm">
             <div className="flex items-center gap-6">
-              <a href="tel:+442012345678" className="flex items-center gap-2 hover:text-accent smooth-transition">
+              <a href="tel:+4407466711733" className="flex items-center gap-2 hover:text-accent smooth-transition">
                 <Phone size={16} />
-                <span>+44 20 1234 5678</span>
+                <span>07466711733</span>
               </a>
-              <a href="mailto:info@reliantservices.co.uk" className="flex items-center gap-2 hover:text-accent smooth-transition">
+              <a href="mailto:rintegservices@gmail.com" className="flex items-center gap-2 hover:text-accent smooth-transition">
                 <Mail size={16} />
-                <span>info@reliantservices.co.uk</span>
+                <span>rintegservices@gmail.com</span>
               </a>
             </div>
             <div className="flex items-center gap-2">
               <MapPin size={16} />
-              <span>East London, UK</span>
+              <span>Romford, UK</span>
             </div>
           </div>
         </div>

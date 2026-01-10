@@ -15,7 +15,7 @@ export const Footer = () => {
               className="h-16 w-auto bg-accent p-2 rounded"
             />
             <p className="text-primary-foreground/80 mb-4">
-              Your trusted partner for stress-free moving in East London. Professional, reliable, and affordable.
+              Your trusted partner for stress-free moving in Romford. Professional, reliable, and affordable.
             </p>
             <div className="flex gap-4">
               <a href="#" className="hover:text-accent smooth-transition" aria-label="Facebook">
@@ -66,11 +66,14 @@ export const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Our Services</h4>
             <ul className="space-y-2 text-primary-foreground/80">
-              <li>House Removals</li>
-              <li>Office Removals</li>
+              <li>Moving Services</li>
               <li>Packing Services</li>
               <li>Furniture Assembly</li>
-              <li>Storage Solutions</li>
+              <li>Piano & Special Items</li>
+              <li>Painting & Decorating</li>
+              <li>Flooring Services</li>
+              <li>Landscaping</li>
+              <li>Cleaning</li>
             </ul>
           </div>
 
@@ -80,19 +83,19 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-primary-foreground/80">
                 <Phone size={18} />
-                <a href="tel:+442012345678" className="hover:text-accent smooth-transition">
-                  +44 20 1234 5678
+                <a href="tel:+4407466711733" className="hover:text-accent smooth-transition">
+                  07466711733
                 </a>
               </li>
               <li className="flex items-center gap-2 text-primary-foreground/80">
                 <Mail size={18} />
-                <a href="mailto:info@reliantservices.co.uk" className="hover:text-accent smooth-transition">
-                  info@reliantservices.co.uk
+                <a href="mailto:rintegservices@gmail.com" className="hover:text-accent smooth-transition">
+                  rintegservices@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-2 text-primary-foreground/80">
                 <MapPin size={18} className="mt-1" />
-                <span>East London, United Kingdom</span>
+                <span>Romford, United Kingdom</span>
               </li>
             </ul>
           </div>

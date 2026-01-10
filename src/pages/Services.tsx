@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { Home, Package, Wrench, Trees, Paintbrush, Grid, Truck, Shield } from 'lucide-react';
+import { Home, Package, Wrench, Trees, Paintbrush, Grid, Truck, Shield, Piano, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const services = [
@@ -24,6 +24,18 @@ const services = [
     features: ['IKEA assembly', 'Office furniture', 'Disassembly service', 'Reassembly'],
   },
   {
+    icon: Piano,
+    title: 'Piano & Special Items',
+    description: 'Specialized moving services for pianos, antiques, and other valuable or delicate items requiring extra care.',
+    features: ['Piano moving', 'Antique handling', 'Delicate items', 'Secure transport'],
+  },
+  {
+    icon: Paintbrush,
+    title: 'Painting & Decorating',
+    description: 'High-quality painting and decorating services to refresh your home or office. Professional finish guaranteed.',
+    features: ['Interior painting', 'Exterior painting', 'Wallpapering', 'Plastering'],
+  },
+  {
     icon: Grid,
     title: 'Flooring Services',
     description: 'Professional flooring installation and maintenance services for residential and commercial properties.',
@@ -36,10 +48,10 @@ const services = [
     features: ['Garden maintenance', 'Lawn care', 'Patio installation', 'Garden design'],
   },
   {
-    icon: Paintbrush,
-    title: 'Painting & Decorating',
-    description: 'High-quality painting and decorating services to refresh your home or office. Professional finish guaranteed.',
-    features: ['Interior painting', 'Exterior painting', 'Wallpapering', 'Plastering'],
+    icon: Sparkles,
+    title: 'Cleaning',
+    description: 'Professional cleaning services for residential and commercial spaces. Leave your property spotless.',
+    features: ['Deep cleaning', 'End of tenancy', 'Office cleaning', 'Regular maintenance'],
   },
 ];
 

@@ -66,7 +66,7 @@ export default function About() {
               About <span className="text-accent">Reliant Integrated Services Ltd</span>
             </h1>
             <p className="text-xl text-primary-foreground/90">
-              Your trusted moving partner in East London, dedicated to making every relocation smooth and stress-free.
+              Your trusted moving partner in Romford, dedicated to making every relocation smooth and stress-free.
             </p>
           </motion.div>
         </div>
@@ -87,7 +87,7 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-lg text-muted-foreground">
                 <p>
-                  Reliant Integrated Services Ltd was founded with a simple mission: to make moving easier and more affordable for everyone. Based in East London, we've grown from a small team to become one of the region's most trusted moving companies.
+                  Reliant Integrated Services Ltd was founded with a simple mission: to make moving easier and more affordable for everyone. Based in Romford, we've grown from a small team to become one of the region's most trusted moving companies.
                 </p>
                 <p>
                   Our young and dynamic team brings energy, professionalism, and dedication to every job. We understand that moving can be stressful, which is why we've built our business around providing a service that's not just efficient, but also friendly and supportive.

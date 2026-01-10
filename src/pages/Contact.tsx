@@ -91,8 +91,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-primary mb-1">Phone</h3>
-                    <a href="tel:+442012345678" className="text-muted-foreground hover:text-accent smooth-transition">
-                      +44 20 1234 5678
+                    <a href="tel:+4407466711733" className="text-muted-foreground hover:text-accent smooth-transition">
+                      07466711733
                     </a>
                   </div>
                 </motion.div>
@@ -106,8 +106,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-primary mb-1">Email</h3>
-                    <a href="mailto:info@reliantservices.co.uk" className="text-muted-foreground hover:text-accent smooth-transition">
-                      info@reliantservices.co.uk
+                    <a href="mailto:rintegservices@gmail.com" className="text-muted-foreground hover:text-accent smooth-transition">
+                      rintegservices@gmail.com
                     </a>
                   </div>
                 </motion.div>
@@ -122,7 +122,7 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-primary mb-1">Address</h3>
                     <p className="text-muted-foreground">
-                      East London<br />
+                      Romford<br />
                       United Kingdom
                     </p>
                   </div>
@@ -203,7 +203,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 rounded-lg border border-input bg-background focus:outline-none focus:ring-2 focus:ring-accent smooth-transition"
-                      placeholder="+44 20 1234 5678"
+                      placeholder="07466711733"
                     />
                   </div>
 

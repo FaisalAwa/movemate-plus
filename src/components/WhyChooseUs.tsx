@@ -23,7 +23,7 @@ const features = [
   {
     icon: Users,
     title: 'Happy Customers',
-    description: 'Thousands of satisfied customers across East London.',
+    description: 'Thousands of satisfied customers across Romford.',
     stat: '1000+',
   },
 ];

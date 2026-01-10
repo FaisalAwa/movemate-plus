@@ -98,7 +98,7 @@ export default function Index() {
               Ready to Make Your Move?
             </h2>
             <p className="text-xl text-primary-foreground/90 mb-8">
-              Get your free quote today and experience the Reliant Integrated Services Ltd difference. Professional, reliable, and affordable moving services in East London.
+              Get your free quote today and experience the Reliant Integrated Services Ltd difference. Professional, reliable, and affordable moving services in Romford.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

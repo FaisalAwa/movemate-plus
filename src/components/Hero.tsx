@@ -66,7 +66,7 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-primary-foreground/90 mb-8"
           >
-            Professional moving services in East London. Stress-free relocations for homes, offices, and everything in between.
+            Professional moving services in Romford. Stress-free relocations for homes, offices, and everything in between.
           </motion.p>
 
           <motion.div
