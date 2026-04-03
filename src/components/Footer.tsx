@@ -101,8 +101,16 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-primary-foreground/60">
+        <div className="border-t border-primary-foreground/20 mt-8 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-primary-foreground/60 text-sm">
           <p>&copy; {new Date().getFullYear()} Reliant Integrated Services Ltd. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link to="/privacy-policy/" className="hover:text-accent smooth-transition">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-and-conditions/" className="hover:text-accent smooth-transition">
+              Terms &amp; Conditions
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
