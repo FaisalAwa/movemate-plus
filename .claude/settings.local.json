@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:rinteg.co.uk)"
+      "WebFetch(domain:rinteg.co.uk)",
+      "Bash(npm install:*)"
     ]
   }
 }

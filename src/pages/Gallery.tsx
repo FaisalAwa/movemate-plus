@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
@@ -77,6 +78,18 @@ export default function Gallery() {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Gallery | Moving & Home Improvement Projects London | Reliant Integrated Services Ltd</title>
+        <meta name="description" content="Explore our gallery showcasing real before and after transformations of moving, cleaning, and home improvement projects in London." />
+        <meta property="og:title" content="Gallery | Moving & Home Improvement Projects London | Reliant Integrated Services Ltd" />
+        <meta property="og:description" content="Explore our gallery showcasing real before and after transformations of moving, cleaning, and home improvement projects in London." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/favicon.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Gallery | Moving & Home Improvement Projects London | Reliant Integrated Services Ltd" />
+        <meta name="twitter:description" content="Explore our gallery showcasing real before and after transformations of moving, cleaning, and home improvement projects in London." />
+        <meta name="twitter:image" content="/favicon.png" />
+      </Helmet>
       <Navbar />
 
       {/* Hero Section */}

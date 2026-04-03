@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
@@ -30,6 +31,18 @@ const values = [
 export default function About() {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>About Us | London Moving & Home Services Team | Reliant Integrated Services Ltd</title>
+        <meta name="description" content="Learn about our London-based team delivering reliable moving, packing, and home improvement services with care, quality, and experience." />
+        <meta property="og:title" content="About Us | London Moving & Home Services Team | Reliant Integrated Services Ltd" />
+        <meta property="og:description" content="Learn about our London-based team delivering reliable moving, packing, and home improvement services with care, quality, and experience." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/favicon.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Us | London Moving & Home Services Team | Reliant Integrated Services Ltd" />
+        <meta name="twitter:description" content="Learn about our London-based team delivering reliable moving, packing, and home improvement services with care, quality, and experience." />
+        <meta name="twitter:image" content="/favicon.png" />
+      </Helmet>
       <Navbar />
 
       {/* Hero Section */}

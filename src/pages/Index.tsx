@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { Hero } from '@/components/Hero';
@@ -10,6 +11,18 @@ import { ArrowRight, Star } from 'lucide-react';
 export default function Index() {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Best Moving Company in London | Reliant Integrated Services Ltd</title>
+        <meta name="description" content="Best moving company in London expert packing, safe storage, and stress-free house removals cleaning services in London. Get a quote now." />
+        <meta property="og:title" content="Best Moving Company in London | Reliant Integrated Services Ltd" />
+        <meta property="og:description" content="Best moving company in London expert packing, safe storage, and stress-free house removals cleaning services in London. Get a quote now." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/favicon.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Best Moving Company in London | Reliant Integrated Services Ltd" />
+        <meta name="twitter:description" content="Best moving company in London expert packing, safe storage, and stress-free house removals cleaning services in London. Get a quote now." />
+        <meta name="twitter:image" content="/favicon.png" />
+      </Helmet>
       <Navbar />
       <Hero />
       <ServicesSection />

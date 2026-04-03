@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
@@ -58,6 +59,18 @@ const services = [
 export default function Services() {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Professional Moving, Packing & Home Services London | Reliant Integrated Services Ltd</title>
+        <meta name="description" content="We are offering packing, removals, furniture assembly, cleaning, flooring, painting, and landscaping services in London. Expert team, competitive prices." />
+        <meta property="og:title" content="Professional Moving, Packing & Home Services London | Reliant Integrated Services Ltd" />
+        <meta property="og:description" content="We are offering packing, removals, furniture assembly, cleaning, flooring, painting, and landscaping services in London. Expert team, competitive prices." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/favicon.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Professional Moving, Packing & Home Services London | Reliant Integrated Services Ltd" />
+        <meta name="twitter:description" content="We are offering packing, removals, furniture assembly, cleaning, flooring, painting, and landscaping services in London. Expert team, competitive prices." />
+        <meta name="twitter:image" content="/favicon.png" />
+      </Helmet>
       <Navbar />
 
       {/* Hero Section */}

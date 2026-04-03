@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
@@ -32,6 +33,18 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Contact Us | Get a Quote for Moving Services London | Reliant Integrated Services Ltd</title>
+        <meta name="description" content="Contact our London moving experts for quotes, bookings, or support. Fast response for removals, packing, and all services." />
+        <meta property="og:title" content="Contact Us | Get a Quote for Moving Services London | Reliant Integrated Services Ltd" />
+        <meta property="og:description" content="Contact our London moving experts for quotes, bookings, or support. Fast response for removals, packing, and all services." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/favicon.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Us | Get a Quote for Moving Services London | Reliant Integrated Services Ltd" />
+        <meta name="twitter:description" content="Contact our London moving experts for quotes, bookings, or support. Fast response for removals, packing, and all services." />
+        <meta name="twitter:image" content="/favicon.png" />
+      </Helmet>
       <Navbar />
 
       {/* Hero Section */}
