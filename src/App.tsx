@@ -14,6 +14,7 @@ import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import { CanonicalTag } from "./components/CanonicalTag";
+import { StickyBottomBar } from "./components/StickyBottomBar";
 
 const queryClient = new QueryClient();
 
@@ -25,18 +26,21 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <CanonicalTag />
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/services/" element={<Services />} />
-            <Route path="/gallery/" element={<Gallery />} />
-            <Route path="/about/" element={<About />} />
-            <Route path="/contact/" element={<Contact />} />
-            <Route path="/booking/" element={<Booking />} />
-            <Route path="/privacy-policy/" element={<PrivacyPolicy />} />
-            <Route path="/terms-and-conditions/" element={<TermsAndConditions />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <div className="pb-16 lg:pb-0">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/services/" element={<Services />} />
+              <Route path="/gallery/" element={<Gallery />} />
+              <Route path="/about/" element={<About />} />
+              <Route path="/contact/" element={<Contact />} />
+              <Route path="/booking/" element={<Booking />} />
+              <Route path="/privacy-policy/" element={<PrivacyPolicy />} />
+              <Route path="/terms-and-conditions/" element={<TermsAndConditions />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+          <StickyBottomBar />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

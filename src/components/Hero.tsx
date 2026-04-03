@@ -1,11 +1,17 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle } from 'lucide-react';
+import { ArrowRight, ShieldCheck, ThumbsUp, BadgeCheck } from 'lucide-react';
 import heroImage from '@/assets/hero-moving.jpg';
+
+const trustBadges = [
+  { label: 'Fully Insured',       icon: ShieldCheck, color: '#60A5FA' }, // blue-400
+  { label: '100% Satisfaction',   icon: ThumbsUp,    color: '#FBBF24' }, // amber-400
+  { label: 'Transparent Pricing', icon: BadgeCheck,  color: '#34D399' }, // emerald-400
+];
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-44 md:pt-32 pb-20">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/70 z-10" />
@@ -39,14 +45,15 @@ export const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-4 z-20 relative">
         <div className="max-w-3xl mx-auto text-center">
+          {/* Badge — increased bottom margin for breathing room */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-6"
+            className="mb-10"
           >
-            <span className="inline-block px-4 py-2 bg-accent text-accent-foreground rounded-full text-sm font-semibold mb-4">
-              Trusted by 1000+ Happy Customers
+            <span className="inline-block px-5 py-2.5 bg-accent text-accent-foreground rounded-full text-sm font-semibold tracking-wide shadow-md">
+              ★ Trusted by 1000+ Happy Customers
             </span>
           </motion.div>
 
@@ -90,22 +97,28 @@ export const Hero = () => {
             </Link>
           </motion.div>
 
+          {/* Trust badges — custom coloured icons */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-wrap gap-6 justify-center text-primary-foreground"
           >
-            {['Fully Insured', '100% Satisfaction', 'Transparent Pricing'].map((item, index) => (
+            {trustBadges.map(({ label, icon: Icon, color }, index) => (
               <motion.div
-                key={item}
+                key={label}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1 + index * 0.1 }}
                 className="flex items-center gap-2"
               >
-                <CheckCircle className="text-accent" size={24} />
-                <span className="font-medium">{item}</span>
+                <span
+                  className="flex items-center justify-center w-7 h-7 rounded-full"
+                  style={{ backgroundColor: `${color}22` }}
+                >
+                  <Icon size={18} style={{ color }} strokeWidth={2.2} />
+                </span>
+                <span className="font-medium">{label}</span>
               </motion.div>
             ))}
           </motion.div>
