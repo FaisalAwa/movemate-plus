@@ -163,7 +163,7 @@ export default function Services() {
               Get a free, no-obligation quote today and experience stress-free moving with Reliant Integrated Services Ltd.
             </p>
             <Link
-              to="/booking"
+              to="/booking/"
               className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-lg text-lg font-semibold hover:bg-accent/90 smooth-transition"
             >
               Book Your Move

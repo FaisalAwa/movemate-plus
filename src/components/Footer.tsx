@@ -40,22 +40,22 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-primary-foreground/80 hover:text-accent smooth-transition">
+                <Link to="/services/" className="text-primary-foreground/80 hover:text-accent smooth-transition">
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" className="text-primary-foreground/80 hover:text-accent smooth-transition">
+                <Link to="/gallery/" className="text-primary-foreground/80 hover:text-accent smooth-transition">
                   Gallery
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-primary-foreground/80 hover:text-accent smooth-transition">
+                <Link to="/about/" className="text-primary-foreground/80 hover:text-accent smooth-transition">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-primary-foreground/80 hover:text-accent smooth-transition">
+                <Link to="/contact/" className="text-primary-foreground/80 hover:text-accent smooth-transition">
                   Contact
                 </Link>
               </li>

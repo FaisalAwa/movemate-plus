@@ -76,14 +76,14 @@ export const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
           >
             <Link
-              to="/booking"
+              to="/booking/"
               className="group inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-lg text-lg font-semibold hover:bg-accent/90 smooth-transition shadow-lg"
             >
               Get Free Quote
               <ArrowRight className="group-hover:translate-x-1 smooth-transition" size={20} />
             </Link>
             <Link
-              to="/services"
+              to="/services/"
               className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-foreground/90 smooth-transition shadow-lg"
             >
               Our Services
