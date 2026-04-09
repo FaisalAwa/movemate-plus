@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Booking from "./pages/Booking";
 import NotFound from "./pages/NotFound";
+import ServiceDetail from "./pages/ServiceDetail";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import { CanonicalTag } from "./components/CanonicalTag";
@@ -30,6 +31,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/services/" element={<Services />} />
+              <Route path="/services/:slug/" element={<ServiceDetail />} />
               <Route path="/gallery/" element={<Gallery />} />
               <Route path="/about/" element={<About />} />
               <Route path="/contact/" element={<Contact />} />

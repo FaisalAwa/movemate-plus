@@ -2,59 +2,9 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { Home, Package, Wrench, Trees, Paintbrush, Grid, Truck, Shield, Piano, Sparkles } from 'lucide-react';
+import { Truck, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-const services = [
-  {
-    icon: Home,
-    title: 'Moving Services',
-    description: 'Comprehensive moving solutions for homes and offices. We handle your belongings with the utmost care and professionalism.',
-    features: ['Residential moves', 'Office relocations', 'Safe transportation', 'Loading & unloading'],
-  },
-  {
-    icon: Package,
-    title: 'Packing Services',
-    description: 'Professional packing services using high-quality materials to ensure your items are protected during transit.',
-    features: ['Full packing service', 'Fragile item packing', 'Quality materials', 'Unpacking services'],
-  },
-  {
-    icon: Wrench,
-    title: 'Furniture Assembly',
-    description: 'Expert dismantling and reassembly of all types of furniture. We ensure everything is perfectly set up in your new space.',
-    features: ['IKEA assembly', 'Office furniture', 'Disassembly service', 'Reassembly'],
-  },
-  {
-    icon: Piano,
-    title: 'Piano & Special Items',
-    description: 'Specialized moving services for pianos, antiques, and other valuable or delicate items requiring extra care.',
-    features: ['Piano moving', 'Antique handling', 'Delicate items', 'Secure transport'],
-  },
-  {
-    icon: Paintbrush,
-    title: 'Painting & Decorating',
-    description: 'High-quality painting and decorating services to refresh your home or office. Professional finish guaranteed.',
-    features: ['Interior painting', 'Exterior painting', 'Wallpapering', 'Plastering'],
-  },
-  {
-    icon: Grid,
-    title: 'Flooring Services',
-    description: 'Professional flooring installation and maintenance services for residential and commercial properties.',
-    features: ['Laminate flooring', 'Hardwood installation', 'Tiling', 'Floor repairs'],
-  },
-  {
-    icon: Trees,
-    title: 'Landscaping',
-    description: 'Transform your outdoor space with our expert landscaping services. From garden maintenance to complete redesigns.',
-    features: ['Garden maintenance', 'Lawn care', 'Patio installation', 'Garden design'],
-  },
-  {
-    icon: Sparkles,
-    title: 'Cleaning',
-    description: 'Professional cleaning services for residential and commercial spaces. Leave your property spotless.',
-    features: ['Deep cleaning', 'End of tenancy', 'Office cleaning', 'Regular maintenance'],
-  },
-];
+import { services } from '@/data/services';
 
 export default function Services() {
   return (
@@ -118,33 +68,40 @@ export default function Services() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-card p-8 rounded-xl shadow-lg hover:shadow-xl smooth-transition group"
                 >
-                  <div className="flex items-start gap-6">
-                    <motion.div
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                      className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 smooth-transition"
-                    >
-                      <Icon className="text-accent" size={32} />
-                    </motion.div>
+                  <Link
+                    to={`/services/${service.slug}/`}
+                    className="block bg-card p-8 rounded-xl shadow-lg hover:shadow-xl smooth-transition group cursor-pointer"
+                  >
+                    <div className="flex items-start gap-6">
+                      <motion.div
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 smooth-transition"
+                      >
+                        <Icon className="text-accent" size={32} />
+                      </motion.div>
 
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-heading font-semibold text-primary mb-3">
-                        {service.title}
-                      </h3>
-                      <p className="text-muted-foreground mb-4">
-                        {service.description}
-                      </p>
-                      <ul className="space-y-2">
-                        {service.features.map((feature) => (
-                          <li key={feature} className="flex items-center gap-2 text-foreground">
-                            <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-heading font-semibold text-primary mb-3 group-hover:text-accent smooth-transition">
+                          {service.title}
+                        </h3>
+                        <p className="text-muted-foreground mb-4">
+                          {service.shortDescription}
+                        </p>
+                        <ul className="space-y-2">
+                          {service.features.map((feature) => (
+                            <li key={feature} className="flex items-center gap-2 text-foreground">
+                              <div className="w-1.5 h-1.5 bg-accent rounded-full" />
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                        <span className="inline-flex items-center gap-1 mt-4 text-accent font-medium text-sm group-hover:gap-2 smooth-transition">
+                          Learn more →
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </motion.div>
               );
             })}
