@@ -1,20 +1,21 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ShieldCheck, ThumbsUp, BadgeCheck } from 'lucide-react';
+import { ArrowRight, Circle } from 'lucide-react';
 import heroImage from '@/assets/hero-moving.jpg';
 
-const trustBadges = [
-  { label: 'Fully Insured',       icon: ShieldCheck, color: '#60A5FA' }, // blue-400
-  { label: '100% Satisfaction',   icon: ThumbsUp,    color: '#FBBF24' }, // amber-400
-  { label: 'Transparent Pricing', icon: BadgeCheck,  color: '#34D399' }, // emerald-400
+const trustPoints = [
+  'Fully Insured',
+  'DBS Checked Staff',
+  '5-Star Rated',
+  'Same-Day Available',
 ];
 
 export const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-44 md:pt-32 pb-20">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-44 md:pt-32 pb-20">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/70 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/60 z-10" />
         <img
           src={heroImage}
           alt="Professional movers at work"
@@ -42,108 +43,85 @@ export const Hero = () => {
         </svg>
       </div>
 
-      {/* Content */}
+      {/* Content — left aligned */}
       <div className="container mx-auto px-4 z-20 relative">
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Badge — increased bottom margin for breathing room */}
+        <div className="max-w-2xl">
+          {/* Small intro label */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="mb-10"
+            transition={{ duration: 0.6 }}
+            className="mb-5"
           >
-            <span className="inline-block px-5 py-2.5 bg-accent text-accent-foreground rounded-full text-sm font-semibold tracking-wide shadow-md">
-              ★ Trusted by 1000+ Happy Customers
+            <span className="text-accent font-semibold tracking-widest text-sm uppercase">
+              London's Trusted Moving Specialists
             </span>
           </motion.div>
 
+          {/* Main headline */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-primary-foreground mb-6"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary-foreground mb-5 leading-tight"
           >
-            We Move It All with{' '}
-            <span className="text-accent">Care and Efficiency</span>
+            Professional Moving &amp; Integrated Services — Done Right
           </motion.h1>
 
+          {/* Subheadline */}
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-primary-foreground/90 mb-8"
+            transition={{ duration: 0.8, delay: 0.25 }}
+            className="text-lg md:text-xl text-primary-foreground/85 mb-8"
           >
-            Professional moving services in Romford. Stress-free relocations for homes, offices, and everything in between.
+            Residential &amp; commercial moves, packing, storage, and specialist handling across London and the UK.
           </motion.p>
 
+          {/* Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-4 mb-10"
           >
             <Link
               to="/booking/"
-              className="group inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-8 py-4 rounded-lg text-lg font-semibold hover:bg-accent/90 smooth-transition shadow-lg"
+              className="group inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-7 py-3.5 rounded-lg text-base font-semibold hover:bg-accent/90 smooth-transition shadow-lg"
             >
-              Get Free Quote
-              <ArrowRight className="group-hover:translate-x-1 smooth-transition" size={20} />
+              Get a Free Quote
+              <ArrowRight className="group-hover:translate-x-1 smooth-transition" size={18} />
             </Link>
             <Link
               to="/services/"
-              className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary-foreground/90 smooth-transition shadow-lg"
+              className="inline-flex items-center justify-center gap-2 border border-primary-foreground/40 text-primary-foreground px-7 py-3.5 rounded-lg text-base font-semibold hover:bg-primary-foreground/10 smooth-transition"
             >
-              Our Services
+              See Our Services
             </Link>
           </motion.div>
 
-          {/* Trust badges — custom coloured icons */}
+          {/* Trust points */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-wrap gap-6 justify-center text-primary-foreground"
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-wrap gap-x-6 gap-y-2"
           >
-            {trustBadges.map(({ label, icon: Icon, color }, index) => (
+            {trustPoints.map((point, index) => (
               <motion.div
-                key={label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1 + index * 0.1 }}
-                className="flex items-center gap-2"
+                key={point}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.7 + index * 0.1 }}
+                className="flex items-center gap-2 text-primary-foreground/80 text-sm"
               >
-                <span
-                  className="flex items-center justify-center w-7 h-7 rounded-full"
-                  style={{ backgroundColor: `${color}22` }}
-                >
-                  <Icon size={18} style={{ color }} strokeWidth={2.2} />
-                </span>
-                <span className="font-medium">{label}</span>
+                <Circle size={8} className="fill-accent text-accent flex-shrink-0" />
+                <span>{point}</span>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </div>
-
-      {/* Animated Truck SVG */}
-      <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1.5, delay: 1 }}
-        className="absolute bottom-10 left-10 hidden xl:block z-20"
-      >
-        <svg width="120" height="60" viewBox="0 0 120 60" className="text-accent">
-          <motion.g
-            animate={{ x: [0, 5, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <rect x="10" y="20" width="50" height="30" fill="currentColor" opacity="0.9" rx="2" />
-            <rect x="60" y="15" width="30" height="35" fill="currentColor" opacity="0.8" rx="2" />
-            <circle cx="30" cy="55" r="5" fill="white" />
-            <circle cx="75" cy="55" r="5" fill="white" />
-          </motion.g>
-        </svg>
-      </motion.div>
     </section>
   );
 };

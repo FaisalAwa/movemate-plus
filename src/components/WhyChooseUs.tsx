@@ -1,30 +1,30 @@
 import { motion } from 'framer-motion';
-import { Shield, Award, Clock, Users } from 'lucide-react';
+import { Shield, Tag, UserCheck, Clock } from 'lucide-react';
 
 const features = [
   {
     icon: Shield,
     title: 'Fully Insured',
-    description: 'Complete insurance coverage for your peace of mind during every move.',
+    description: 'All moves covered with comprehensive goods-in-transit insurance.',
     stat: '100%',
   },
   {
-    icon: Award,
-    title: 'Experienced Team',
-    description: 'Young, dynamic, and fully trained professionals with years of expertise.',
+    icon: Tag,
+    title: 'Transparent Pricing',
+    description: 'No hidden fees. Fixed quotes so you always know the cost upfront.',
+    stat: 'Fix',
+  },
+  {
+    icon: UserCheck,
+    title: 'Trained Professionals',
+    description: 'DBS-checked, uniformed staff who treat your belongings with care.',
     stat: '10+',
   },
   {
     icon: Clock,
-    title: 'On-Time Service',
-    description: 'Punctual and efficient service that respects your schedule.',
+    title: 'On-Time Guarantee',
+    description: 'We arrive as agreed. Always.',
     stat: '99%',
-  },
-  {
-    icon: Users,
-    title: 'Happy Customers',
-    description: 'Thousands of satisfied customers across Romford.',
-    stat: '1000+',
   },
 ];
 
@@ -62,11 +62,12 @@ export const WhyChooseUs = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
+          <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-3">Why Choose Us</p>
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
-            Why Choose <span className="text-accent">Reliant Integrated Services Ltd</span>?
+            The Reliant <span className="text-accent">Difference</span>
           </h2>
           <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto">
-            Your trusted partner for stress-free moving with transparent pricing and guaranteed satisfaction
+            Every move is backed by our commitment to quality, transparency, and professionalism
           </p>
         </motion.div>
 

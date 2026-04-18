@@ -2,8 +2,13 @@ import { Helmet } from 'react-helmet-async';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { Hero } from '@/components/Hero';
+import { StatsBar } from '@/components/StatsBar';
 import { ServicesSection } from '@/components/ServicesSection';
 import { WhyChooseUs } from '@/components/WhyChooseUs';
+import { HowItWorks } from '@/components/HowItWorks';
+import { AreasWeCover } from '@/components/AreasWeCover';
+import { OurWork } from '@/components/OurWork';
+import { FAQSection } from '@/components/FAQSection';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
@@ -25,8 +30,13 @@ export default function Index() {
       </Helmet>
       <Navbar />
       <Hero />
+      <StatsBar />
       <ServicesSection />
       <WhyChooseUs />
+      <HowItWorks />
+      <AreasWeCover />
+      <OurWork />
+      <FAQSection />
 
       {/* Testimonials Section */}
       <section className="py-20 bg-background">

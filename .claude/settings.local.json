@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:rinteg.co.uk)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(python -c ' *)",
+      "Bash(cat \"Addition/Rinteg Home Page Content.docx\")"
     ]
   }
 }
