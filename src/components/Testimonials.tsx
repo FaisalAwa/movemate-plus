@@ -1,7 +1,16 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { Star, Send, ChevronLeft, ChevronRight, X, CheckCircle } from 'lucide-react';
+import { Star, Send, ChevronLeft, ChevronRight, X, CheckCircle, Loader2 } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import seedReviews from '@/data/reviews.json';
+
+const BIN_ID = '69e36d44856a68218949113a';
+const MASTER_KEY = '$2a$10$gR8.JNU44KSmc9RVlZp/h.DPCL1Fqozp4LWjSWQeC79ib8cpF3vEq';
+const API_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+const HEADERS = {
+  'Content-Type': 'application/json',
+  'X-Master-Key': MASTER_KEY,
+  'X-Bin-Versioning': 'false',
+};
 
 interface Review {
   id: string;
@@ -12,20 +21,30 @@ interface Review {
   date: string;
 }
 
-const STORAGE_KEY = 'rinteg_user_reviews';
-
-function loadUserReviews(): Review[] {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : [];
-  } catch {
-    return [];
+async function fetchReviews(): Promise<Review[]> {
+  const res = await fetch(API_URL, { headers: HEADERS });
+  const data = await res.json();
+  const reviews: Review[] = data?.record?.reviews ?? [];
+  if (reviews.length === 0) {
+    await saveAllReviews(seedReviews as Review[]);
+    return seedReviews as Review[];
   }
+  return reviews;
 }
 
-function saveUserReview(review: Review) {
-  const existing = loadUserReviews();
-  localStorage.setItem(STORAGE_KEY, JSON.stringify([...existing, review]));
+async function saveAllReviews(reviews: Review[]) {
+  await fetch(API_URL, {
+    method: 'PUT',
+    headers: HEADERS,
+    body: JSON.stringify({ reviews }),
+  });
+}
+
+async function addReview(newReview: Review): Promise<Review[]> {
+  const current = await fetchReviews();
+  const updated = [...current, newReview];
+  await saveAllReviews(updated);
+  return updated;
 }
 
 function StarRating({ value, onChange }: { value: number; onChange?: (v: number) => void }) {
@@ -76,9 +95,11 @@ function ReviewCard({ review, index }: { review: Review; index: number }) {
 
 export const Testimonials = () => {
   const [allReviews, setAllReviews] = useState<Review[]>([]);
+  const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(0);
   const [showForm, setShowForm] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({ name: '', location: '', rating: 5, text: '' });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const formRef = useRef<HTMLDivElement>(null);
@@ -86,8 +107,9 @@ export const Testimonials = () => {
   const PER_PAGE = 3;
 
   useEffect(() => {
-    const userReviews = loadUserReviews();
-    setAllReviews([...seedReviews, ...userReviews]);
+    fetchReviews()
+      .then(setAllReviews)
+      .finally(() => setLoading(false));
   }, []);
 
   const totalPages = Math.ceil(allReviews.length / PER_PAGE);
@@ -102,11 +124,12 @@ export const Testimonials = () => {
     return e;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length) { setErrors(errs); return; }
 
+    setSubmitting(true);
     const newReview: Review = {
       id: `u_${Date.now()}`,
       name: form.name.trim(),
@@ -116,13 +139,18 @@ export const Testimonials = () => {
       date: new Date().toISOString().split('T')[0],
     };
 
-    saveUserReview(newReview);
-    setAllReviews((prev) => [...prev, newReview]);
-    setSubmitted(true);
-    setForm({ name: '', location: '', rating: 5, text: '' });
-    setErrors({});
-    // go to last page to show new review
-    setPage(Math.floor((allReviews.length) / PER_PAGE));
+    try {
+      const updated = await addReview(newReview);
+      setAllReviews(updated);
+      setPage(Math.floor((updated.length - 1) / PER_PAGE));
+      setSubmitted(true);
+      setForm({ name: '', location: '', rating: 5, text: '' });
+      setErrors({});
+    } catch {
+      alert('Failed to submit review. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const closeForm = () => { setShowForm(false); setSubmitted(false); setErrors({}); };
@@ -143,44 +171,57 @@ export const Testimonials = () => {
           <p className="text-xl text-muted-foreground">Real reviews from real customers</p>
         </motion.div>
 
-        {/* Review cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 min-h-[220px]">
-          <AnimatePresence mode="wait">
-            {visible.map((review, i) => (
-              <ReviewCard key={review.id} review={review} index={i} />
-            ))}
-          </AnimatePresence>
-        </div>
-
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <div className="flex items-center justify-center gap-4 mb-10">
-            <button
-              onClick={() => setPage((p) => Math.max(0, p - 1))}
-              disabled={page === 0}
-              className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:border-accent hover:text-accent smooth-transition disabled:opacity-30"
-              aria-label="Previous page"
-            >
-              <ChevronLeft size={16} />
-            </button>
-            <span className="text-sm text-muted-foreground">
-              {page + 1} / {totalPages}
-            </span>
-            <button
-              onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
-              disabled={page === totalPages - 1}
-              className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:border-accent hover:text-accent smooth-transition disabled:opacity-30"
-              aria-label="Next page"
-            >
-              <ChevronRight size={16} />
-            </button>
+        {/* Loading state */}
+        {loading ? (
+          <div className="flex justify-center items-center py-16">
+            <Loader2 size={36} className="animate-spin text-accent" />
           </div>
+        ) : (
+          <>
+            {/* Review cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 min-h-[220px]">
+              <AnimatePresence mode="wait">
+                {visible.map((review, i) => (
+                  <ReviewCard key={review.id} review={review} index={i} />
+                ))}
+              </AnimatePresence>
+            </div>
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="flex items-center justify-center gap-4 mb-10">
+                <button
+                  onClick={() => setPage((p) => Math.max(0, p - 1))}
+                  disabled={page === 0}
+                  className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:border-accent hover:text-accent smooth-transition disabled:opacity-30"
+                  aria-label="Previous page"
+                >
+                  <ChevronLeft size={16} />
+                </button>
+                <span className="text-sm text-muted-foreground">
+                  {page + 1} / {totalPages}
+                </span>
+                <button
+                  onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+                  disabled={page === totalPages - 1}
+                  className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:border-accent hover:text-accent smooth-transition disabled:opacity-30"
+                  aria-label="Next page"
+                >
+                  <ChevronRight size={16} />
+                </button>
+              </div>
+            )}
+          </>
         )}
 
         {/* Leave a review button */}
         <div className="flex justify-center mb-2">
           <button
-            onClick={() => { setShowForm(true); setSubmitted(false); setTimeout(() => formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100); }}
+            onClick={() => {
+              setShowForm(true);
+              setSubmitted(false);
+              setTimeout(() => formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
+            }}
             className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold hover:bg-accent/90 smooth-transition shadow"
           >
             <Star size={16} className="fill-accent-foreground" />
@@ -210,7 +251,7 @@ export const Testimonials = () => {
                 <div className="flex flex-col items-center gap-4 py-8 text-center">
                   <CheckCircle size={48} className="text-accent" />
                   <h3 className="text-xl font-semibold text-primary">Thank you for your review!</h3>
-                  <p className="text-muted-foreground">Your feedback is now visible on the page.</p>
+                  <p className="text-muted-foreground">Your feedback is now visible to everyone.</p>
                   <button
                     onClick={closeForm}
                     className="mt-2 px-5 py-2.5 bg-accent text-accent-foreground rounded-lg font-medium hover:bg-accent/90 smooth-transition"
@@ -222,7 +263,6 @@ export const Testimonials = () => {
                 <>
                   <h3 className="text-xl font-semibold text-primary mb-6">Share Your Experience</h3>
                   <form onSubmit={handleSubmit} noValidate className="space-y-5">
-                    {/* Name */}
                     <div>
                       <label className="block text-sm font-medium text-primary mb-1.5">
                         Your Name <span className="text-destructive">*</span>
@@ -237,7 +277,6 @@ export const Testimonials = () => {
                       {errors.name && <p className="text-destructive text-xs mt-1">{errors.name}</p>}
                     </div>
 
-                    {/* Location */}
                     <div>
                       <label className="block text-sm font-medium text-primary mb-1.5">
                         Your Location <span className="text-destructive">*</span>
@@ -252,7 +291,6 @@ export const Testimonials = () => {
                       {errors.location && <p className="text-destructive text-xs mt-1">{errors.location}</p>}
                     </div>
 
-                    {/* Rating */}
                     <div>
                       <label className="block text-sm font-medium text-primary mb-2">
                         Rating <span className="text-destructive">*</span>
@@ -260,7 +298,6 @@ export const Testimonials = () => {
                       <StarRating value={form.rating} onChange={(v) => setForm((f) => ({ ...f, rating: v }))} />
                     </div>
 
-                    {/* Review text */}
                     <div>
                       <label className="block text-sm font-medium text-primary mb-1.5">
                         Your Review <span className="text-destructive">*</span>
@@ -277,10 +314,14 @@ export const Testimonials = () => {
 
                     <button
                       type="submit"
-                      className="w-full inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold hover:bg-accent/90 smooth-transition shadow"
+                      disabled={submitting}
+                      className="w-full inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold hover:bg-accent/90 smooth-transition shadow disabled:opacity-70"
                     >
-                      <Send size={16} />
-                      Submit Review
+                      {submitting ? (
+                        <><Loader2 size={16} className="animate-spin" /> Submitting...</>
+                      ) : (
+                        <><Send size={16} /> Submit Review</>
+                      )}
                     </button>
                   </form>
                 </>
