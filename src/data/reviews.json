@@ -1,0 +1,50 @@
+[
+  {
+    "id": "r1",
+    "name": "Sarah Johnson",
+    "location": "Hackney, London",
+    "rating": 5,
+    "text": "Absolutely fantastic service! The team was professional, efficient, and handled our belongings with great care.",
+    "date": "2025-03-12"
+  },
+  {
+    "id": "r2",
+    "name": "Michael Chen",
+    "location": "Stratford, London",
+    "rating": 5,
+    "text": "Best moving company we've used. Transparent pricing, no hidden fees, and they were right on time.",
+    "date": "2025-04-02"
+  },
+  {
+    "id": "r3",
+    "name": "Emma Wilson",
+    "location": "Bethnal Green, London",
+    "rating": 5,
+    "text": "Stress-free moving experience from start to finish. Highly recommend Reliant Integrated Services Ltd to anyone!",
+    "date": "2025-05-18"
+  },
+  {
+    "id": "r4",
+    "name": "James Patel",
+    "location": "Canary Wharf, London",
+    "rating": 5,
+    "text": "They moved our entire office in a single day with zero disruption. Incredibly organised and fast.",
+    "date": "2025-06-07"
+  },
+  {
+    "id": "r5",
+    "name": "Laura Thompson",
+    "location": "Richmond, London",
+    "rating": 5,
+    "text": "The packing team was meticulous — not a single item was damaged. Will definitely use again.",
+    "date": "2025-07-14"
+  },
+  {
+    "id": "r6",
+    "name": "David Okafor",
+    "location": "Croydon, London",
+    "rating": 4,
+    "text": "Great service overall. The team was friendly and worked quickly. Would recommend to family and friends.",
+    "date": "2025-08-03"
+  }
+]

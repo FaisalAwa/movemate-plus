@@ -9,9 +9,10 @@ import { HowItWorks } from '@/components/HowItWorks';
 import { AreasWeCover } from '@/components/AreasWeCover';
 import { OurWork } from '@/components/OurWork';
 import { FAQSection } from '@/components/FAQSection';
+import { Testimonials } from '@/components/Testimonials';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function Index() {
   return (
@@ -37,65 +38,7 @@ export default function Index() {
       <AreasWeCover />
       <OurWork />
       <FAQSection />
-
-      {/* Testimonials Section */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">
-              What Our Customers Say
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Real reviews from real customers
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: 'Sarah Johnson',
-                location: 'Hackney, London',
-                text: 'Absolutely fantastic service! The team was professional, efficient, and handled our belongings with great care.',
-              },
-              {
-                name: 'Michael Chen',
-                location: 'Stratford, London',
-                text: 'Best moving company we\'ve used. Transparent pricing, no hidden fees, and they were right on time.',
-              },
-              {
-                name: 'Emma Wilson',
-                location: 'Bethnal Green, London',
-                text: 'Stress-free moving experience from start to finish. Highly recommend Reliant Integrated Services Ltd to anyone!',
-              },
-            ].map((review, index) => (
-              <motion.div
-                key={review.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-card p-6 rounded-xl shadow-lg"
-              >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-accent text-accent" />
-                  ))}
-                </div>
-                <p className="text-muted-foreground mb-4">"{review.text}"</p>
-                <div>
-                  <p className="font-semibold text-primary">{review.name}</p>
-                  <p className="text-sm text-muted-foreground">{review.location}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Testimonials />
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground relative overflow-hidden">
