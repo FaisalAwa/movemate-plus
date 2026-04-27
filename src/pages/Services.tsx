@@ -85,19 +85,14 @@ export default function Services() {
                         <h3 className="text-2xl font-heading font-semibold text-primary mb-3 group-hover:text-accent smooth-transition">
                           {service.title}
                         </h3>
-                        <p className="text-muted-foreground mb-4">
+                        <p className="text-muted-foreground mb-6 line-clamp-3">
                           {service.shortDescription}
                         </p>
-                        <ul className="space-y-2">
-                          {service.features.map((feature) => (
-                            <li key={feature} className="flex items-center gap-2 text-foreground">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full" />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                        <span className="inline-flex items-center gap-1 mt-4 text-accent font-medium text-sm group-hover:gap-2 smooth-transition">
-                          Learn more →
+                        <span className="inline-flex items-center gap-2 text-accent font-medium group-hover:gap-3 smooth-transition">
+                          Read more
+                          <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
                         </span>
                       </div>
                     </div>

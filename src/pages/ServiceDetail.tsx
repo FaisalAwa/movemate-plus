@@ -3,12 +3,14 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { CheckCircle, ArrowLeft, Truck, Shield } from 'lucide-react';
+import { CheckCircle, ArrowLeft, Truck, Shield, ChevronDown } from 'lucide-react';
 import { services } from '@/data/services';
+import { useState } from 'react';
 
 export default function ServiceDetail() {
   const { slug } = useParams<{ slug: string }>();
   const service = services.find((s) => s.slug === slug);
+  const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
 
   if (!service) {
     return <Navigate to="/services/" replace />;
@@ -103,6 +105,28 @@ export default function ServiceDetail() {
                   {service.fullDescription}
                 </p>
               </motion.div>
+
+              {service.sections && service.sections.length > 0 && (
+                <div className="space-y-8">
+                  {service.sections.map((section, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      className="bg-card rounded-xl p-8 shadow-lg"
+                    >
+                      <h3 className="text-2xl font-heading font-bold text-primary mb-4">
+                        {section.heading}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed text-lg">
+                        {section.content}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              )}
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -219,6 +243,65 @@ export default function ServiceDetail() {
           </div>
         </div>
       </section>
+
+      {/* FAQs Section */}
+      {service.faqs && service.faqs.length > 0 && (
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="max-w-4xl"
+            >
+              <h2 className="text-4xl font-heading font-bold text-primary mb-12">
+                Frequently Asked Questions
+              </h2>
+              <div className="space-y-4">
+                {service.faqs.map((faq, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    className="border border-border rounded-lg overflow-hidden bg-card hover:shadow-md transition-shadow"
+                  >
+                    <button
+                      onClick={() => setExpandedFAQ(expandedFAQ === index ? null : index)}
+                      className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-muted transition-colors"
+                    >
+                      <span className="text-lg font-semibold text-foreground">
+                        {faq.question}
+                      </span>
+                      <ChevronDown
+                        size={24}
+                        className={`text-accent transition-transform ${
+                          expandedFAQ === index ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
+                    {expandedFAQ === index && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="px-6 py-4 bg-muted border-t border-border"
+                      >
+                        <p className="text-muted-foreground leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
 
       {/* CTA Banner */}
       <section className="py-20 bg-muted">

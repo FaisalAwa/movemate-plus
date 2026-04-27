@@ -4,7 +4,17 @@
       "WebFetch(domain:rinteg.co.uk)",
       "Bash(npm install:*)",
       "Bash(python -c ' *)",
-      "Bash(cat \"Addition/Rinteg Home Page Content.docx\")"
+      "Bash(cat \"Addition/Rinteg Home Page Content.docx\")",
+      "Bash(python3)",
+      "Bash(unzip -c \"Packing Services.docx\" word/document.xml)",
+      "Bash(sed 's/<w:t[^>]*>//g')",
+      "Bash(curl -s http://localhost:8081/services/packing/)",
+      "Bash(curl -s http://localhost:8081/services/piano-special-items/)",
+      "Bash(curl -s http://localhost:8081/services/painting-decorating/)",
+      "Bash(curl -s -I http://localhost:8081/)",
+      "Bash(curl -s http://localhost:8081/services/flooring/)",
+      "Bash(unzip -q \"Landscaping Services.docx\" -d landscaping_temp)",
+      "Read(//c/c/Users/PMLS/Downloads/movemate-plus/Services/landscaping_temp/word/**)"
     ]
   }
 }
