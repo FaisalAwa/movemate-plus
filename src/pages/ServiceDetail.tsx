@@ -67,9 +67,20 @@ export default function ServiceDetail() {
             <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6">
               {service.title}
             </h1>
-            <p className="text-xl text-primary-foreground/90">
-              {service.shortDescription}
-            </p>
+            {service.shortDescription.includes('(Reliable') && (
+              <>
+                <p className="text-lg text-primary-foreground/80 mb-4 font-semibold">
+                  {service.shortDescription.split(') ')[0]})
+                </p>
+                <p className="text-xl text-primary-foreground/90">
+                  {service.shortDescription.split(') ').slice(1).join(') ')}
+                </p>
+              </>
+            ) || (
+              <p className="text-xl text-primary-foreground/90">
+                {service.shortDescription}
+              </p>
+            )}
           </motion.div>
         </div>
       </section>
@@ -89,22 +100,24 @@ export default function ServiceDetail() {
       <section className="py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-            {/* Description + Benefits */}
+            {/* Description + Benefits + Custom Sections */}
             <div className="lg:col-span-2 space-y-10">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="bg-card rounded-xl p-8 shadow-lg"
-              >
-                <h2 className="text-3xl font-heading font-bold text-primary mb-4">
-                  About This Service
-                </h2>
-                <p className="text-muted-foreground leading-relaxed text-lg">
-                  {service.fullDescription}
-                </p>
-              </motion.div>
+              {!service.sections && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="bg-card rounded-xl p-8 shadow-lg"
+                >
+                  <h2 className="text-3xl font-heading font-bold text-primary mb-4">
+                    About This Service
+                  </h2>
+                  <p className="text-muted-foreground leading-relaxed text-lg">
+                    {service.fullDescription}
+                  </p>
+                </motion.div>
+              )}
 
               {service.sections && service.sections.length > 0 && (
                 <div className="space-y-8">
@@ -114,59 +127,116 @@ export default function ServiceDetail() {
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      transition={{ duration: 0.6, delay: index * 0.05 }}
                       className="bg-card rounded-xl p-8 shadow-lg"
                     >
-                      <h3 className="text-2xl font-heading font-bold text-primary mb-4">
+                      <h2 className="text-3xl font-heading font-bold text-primary mb-6">
                         {section.heading}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed text-lg">
-                        {section.content}
-                      </p>
+                      </h2>
+                      <div className="space-y-4">
+                        {Array.isArray(section.content) ? section.content.map((item, pIdx) => {
+                          if (section.heading === 'How the Process Works' && item.includes('\n')) {
+                            const [title, description] = item.split('\n');
+                            return (
+                              <div key={pIdx} className="border-l-4 border-accent pl-6">
+                                <h3 className="text-xl font-heading font-bold text-primary mb-2">
+                                  {title}
+                                </h3>
+                                <p className="text-muted-foreground leading-relaxed">
+                                  {description}
+                                </p>
+                              </div>
+                            );
+                          } else if (section.heading === 'Why Choose Us') {
+                            const [title, description] = item.split(' – ');
+                            return (
+                              <div key={pIdx} className="flex items-start gap-3">
+                                <CheckCircle className="text-accent flex-shrink-0 mt-1" size={20} />
+                                <div className="flex-1">
+                                  <h3 className="text-lg font-semibold text-foreground mb-1">
+                                    {title}
+                                  </h3>
+                                  {description && (
+                                    <p className="text-muted-foreground leading-relaxed">
+                                      {description}
+                                    </p>
+                                  )}
+                                </div>
+                              </div>
+                            );
+                          } else if (section.heading === 'Professional Moving Services') {
+                            if (pIdx === 0) {
+                              return (
+                                <p key={pIdx} className="text-lg font-semibold text-primary mb-3">
+                                  {item}
+                                </p>
+                              );
+                            }
+                            return (
+                              <p key={pIdx} className="text-muted-foreground leading-relaxed text-lg">
+                                {item}
+                              </p>
+                            );
+                          }
+                          return (
+                            <p key={pIdx} className="text-muted-foreground leading-relaxed text-lg">
+                              {item}
+                            </p>
+                          );
+                        }) : (
+                          <p className="text-muted-foreground leading-relaxed text-lg">
+                            {section.content}
+                          </p>
+                        )}
+                      </div>
                     </motion.div>
                   ))}
                 </div>
               )}
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-card rounded-xl p-8 shadow-lg"
-              >
-                <h2 className="text-3xl font-heading font-bold text-primary mb-6">
-                  What's Included
-                </h2>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {service.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-3 text-foreground">
-                      <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
+              {!service.sections && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="bg-card rounded-xl p-8 shadow-lg"
+                >
+                  <h2 className="text-3xl font-heading font-bold text-primary mb-6">
+                    What's Included
+                  </h2>
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {service.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-3 text-foreground">
+                        <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-card rounded-xl p-8 shadow-lg"
-              >
-                <h2 className="text-3xl font-heading font-bold text-primary mb-6">
-                  Why Choose Us
-                </h2>
-                <ul className="space-y-4">
-                  {service.benefits.map((benefit) => (
-                    <li key={benefit} className="flex items-start gap-3 text-foreground">
-                      <CheckCircle className="text-accent flex-shrink-0 mt-0.5" size={20} />
-                      <span>{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
+              {!service.sections && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="bg-card rounded-xl p-8 shadow-lg"
+                >
+                  <h2 className="text-3xl font-heading font-bold text-primary mb-6">
+                    Why Choose Us
+                  </h2>
+                  <ul className="space-y-4">
+                    {service.benefits.map((benefit) => (
+                      <li key={benefit} className="flex items-start gap-3 text-foreground">
+                        <CheckCircle className="text-accent flex-shrink-0 mt-0.5" size={20} />
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
             </div>
 
             {/* Sidebar CTA */}

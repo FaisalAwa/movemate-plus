@@ -18,9 +18,9 @@ export const services: Service[] = [
   {
     slug: 'moving',
     icon: Home,
-    title: 'Moving Services',
-    shortDescription: 'Comprehensive moving solutions for homes and offices. We deliver reliable, end-to-end moving solutions from careful packing and secure transport to seamless unpacking and setup.',
-    fullDescription: 'At Reliant Integrated Services, moving is handled with precision, care, and complete professionalism. Our moving services are designed to simplify every stage of relocation, whether you need residential moving services, office moving services, or long-distance moving services. Each move is carefully planned, and every detail is managed by trained experts to ensure safe packing, secure transport, and smooth delivery. We focus on reducing stress while maintaining high efficiency, so your home or business transition stays on schedule. From packing and moving services to secure storage solutions, our team delivers flexible options that fit your needs. Transparent pricing, modern equipment, and experienced crews make us a trusted choice for reliable moving services. Whether it\'s a small apartment or a full corporate relocation, we provide dependable, end-to-end moving solutions tailored to you. Our licensed, fully insured teams handle every detail, whether it\'s a family home, corporate office, or long-distance move. Flexible scheduling, white-glove handling, and dedicated coordinators ensure your belongings arrive safely and on time.',
+    title: 'Professional Moving Services',
+    shortDescription: '(Reliable, Smarter and Stress-Free Services) Relocating your home or business does not have to be chaotic. At Reliant Integrated Services, we deliver reliable, end-to-end moving solutions from careful packing and secure transport to seamless unpacking and setup. Our licensed, fully insured teams handle every detail, whether it\'s a family home, corporate office, or long-distance move. Flexible scheduling, white-glove handling, and dedicated coordinators ensure your belongings arrive safely and on time. Experience moving made effortless with us.',
+    fullDescription: 'Relocating your home or business does not have to be chaotic. At Reliant Integrated Services, we deliver reliable, end-to-end moving solutions from careful packing and secure transport to seamless unpacking and setup. Our licensed, fully insured teams handle every detail, whether it\'s a family home, corporate office, or long-distance move. Flexible scheduling, white-glove handling, and dedicated coordinators ensure your belongings arrive safely and on time. Experience moving made effortless with us.',
     features: [
       'Residential Moving Services',
       'Commercial Moving Services',
@@ -36,15 +36,106 @@ export const services: Service[] = [
       'Transparent Pricing – No hidden fees, no surprises',
       'Experienced Crews – Trained professionals handle every move',
       'Dedicated Move Coordinator – One person manages your entire move',
-      'Flexible Scheduling – Weekdays, weekends, or phased moves',
-      'Outstanding Customer Reviews – Hundreds of happy clients trust us',
+      'Flexible Scheduling – Weekdays, weekends, or phased moves your choice',
       'End-to-End Services – From packing to unpacking, we do it all',
       'Long-Distance Experts – Safe and precise interstate relocations',
       'Secure Storage Solutions – Short- or long-term, climate-controlled if needed',
-      'Proven Track Record – Trusted by families and businesses alike'
+      'Outstanding Customer Reviews – Hundreds of happy clients trust us every year',
+      'Proven Track Record – Hundreds of happy clients trust us every year'
     ],
     metaTitle: 'Professional Moving Services London | Reliant Integrated Services Ltd',
     metaDescription: 'Expert residential, commercial and office moving services in London. Licensed, fully insured relocations with dedicated coordinators. Get a free quote today.',
+    sections: [
+      {
+        heading: 'About Reliant Integrated Services',
+        content: [
+          'At Reliant Integrated Services, moving is handled with precision, care, and complete professionalism. Our moving services are designed to simplify every stage of relocation, whether you need residential moving services, office moving services, or long-distance moving services. Each move is carefully planned, and every detail is managed by trained experts to ensure safe packing, secure transport, and smooth delivery.',
+          'We focus on reducing stress while maintaining high efficiency, so your home or business transition stays on schedule. From packing and moving services to secure storage solutions, our team delivers flexible options that fit your needs. Transparent pricing, modern equipment, and experienced crews make us a trusted choice for reliable moving services. Whether it\'s a small apartment or a full corporate relocation, we provide dependable, end-to-end moving solutions tailored to you.'
+        ]
+      },
+      {
+        heading: 'Our Moving Services',
+        content: ['Every relocation is different. That is the reason our services are designed to flex around you. Not the other way around.']
+      },
+      {
+        heading: 'Residential Moving Services',
+        content: [
+          'Moving home is a huge step in your life. It deserves better than a borrowed van and a weekend of chaos. We provide end to end moving home services for any household relocation. We handle the entire process of careful packaging of all your items, safely loading them into our vehicles, secure transportation to their destination address, and systematic unpacking at your new place of residence.',
+          'Families particularly value our white-glove handling options, which include custom wrapping, furniture disassembly and reassembly, and item by item inventory to make sure nothing gets lost in transition. We work around your schedule. Whether you need a weekday move, a weekend slot, or a carefully phased relocation over multiple days, we organise it entirely around you.'
+        ]
+      },
+      {
+        heading: 'Commercial Moving Services',
+        content: [
+          'When a business moves, operational continuity is key. Every hour of unnecessary downtime carries a real cost and we take that seriously. We have designed our commercial moving services to be as issue-free as possible at each level. We planned with precision, delivered successfully, and worked hand in glove with your facilities and operations teams to facilitate seamlessness from day one.',
+          'After-hours scheduling, staggered moves separated over several days, and dedicated project management get your business up and running in its new home with minimal disruption. From moving an entire office building to large corporate headquarters relocation, our business moving services scale to the needs of your operation.'
+        ]
+      },
+      {
+        heading: 'Office Moving Services',
+        content: [
+          'An office move is more than a new place for the furniture. It includes things like IT infrastructure, server equipment, proprietary documentation, branded assets, and just good old-fashioned meticulous scheduling to ensure your team is kept productive throughout.',
+          'Our office moving services include full IT equipment handling, cubicle and workstation disassembly and reassembly, cabling management, and secure document transport. A dedicated coordinator is assigned to every move. A single person who manages logistics, timelines, and execution on the day of the move so nothing falls through the cracks.'
+        ]
+      },
+      {
+        heading: 'Long-Distance Moving Services',
+        content: [
+          'Distance adds complexity. The longer the journey, logistics rather than loading become essential. Our long-distance relocation services provide the same care and precision as a local moving task but all over the country. You won\'t find any hidden costs down the line with flat-rate and weight-based pricing options.',
+          'As a result of real-time GPS tracking, you always know precisely where your belongings are. And for extended transit times, our experienced long-haul crews utilize load-securing methodologies engineered to protect their shipment.'
+        ]
+      },
+      {
+        heading: 'Moving Out Services',
+        content: [
+          'Moving out of a property whether it\'s a rental, a commercial lease, or a family home is more involved than clearing out furniture. There are clearance requirements, conditions for handover, and often tight timelines to meet.',
+          'Our moving out services take care of the entire move-out process. We will quickly clear the house, load the contents to your new address or storage facility, and leave it as clean as possible, ready for handover. If a business is vacating its commercial lease, we work directly with the property manager to ensure tenancy conditions and handover deadlines are met.'
+        ]
+      },
+      {
+        heading: 'Moving In Services',
+        content: [
+          'Gaining access to a new property is thrilling. Better still is arriving to find all in place. Our move-in services do not stop at delivery. We unpack, arrange, and set up every room according to your specification, furniture built, kitchen items in position, closets filled, and beds made. Instead of your first few nights camping among mountains of boxes, you walk into a home that\'s ready to live in from the start.'
+        ]
+      },
+      {
+        heading: 'Storage Solutions',
+        content: [
+          'Timing gaps happen. Even if it starts later, your new lease does not begin until your old one ends. Renovations run long. You are downsizing and need time to decide what passes muster. This is where our secure storage solutions come in. We have both short-term and long-term options, including climate-controlled units for temperature-sensitive items, musical instruments, artwork, electronics, and important documents.',
+          'The month-to-month flexibility means you\'re never locked into a contract longer than necessary. Things go straight from collection to storage and straight on to your new address when you need it.'
+        ]
+      },
+      {
+        heading: 'How the Process Works',
+        content: [
+          'Request a quote\nCall, email, or complete our online form. For larger moves, an in-home or on-site survey produces the most accurate estimate.',
+          'Receive your moving plan\nWe build a tailored plan around your inventory, timeline, distance, and specific requirements. Nothing generic, nothing off-the-shelf.',
+          'Delivery and setup\nWe handle every step of your move. From careful packing and systematic loading to delivery, setup, and furniture assembly, your belongings arrive safely and ready to use no stress, no hassle.',
+          'Follow-up\nWe check in after delivery. Any issues are addressed immediately, transparently, without bureaucratic delay.'
+        ]
+      },
+      {
+        heading: 'Why Choose Us',
+        content: [
+          'Licensed & Fully Insured – Your belongings are always protected',
+          'Transparent Pricing – No hidden fees, no surprises',
+          'Experienced Crews – Trained professionals handle every move',
+          'Dedicated Move Coordinator – One person manages your entire move',
+          'Flexible Scheduling – Weekdays, weekends, or phased moves your choice',
+          'End-to-End Services – From packing to unpacking, we do it all',
+          'Long-Distance Experts – Safe and precise interstate relocations',
+          'Secure Storage Solutions – Short- or long-term, climate-controlled if needed',
+          'Outstanding Customer Reviews – Hundreds of happy clients trust us every year',
+          'Proven Track Record – Hundreds of happy clients trust us every year'
+        ]
+      },
+      {
+        heading: 'Get a Free Moving Quote',
+        content: [
+          'Your move deserves proper planning, professional handling, and a team that takes accountability seriously. Whether you need local moving services, long distance moving services, packing and moving services, or a fully managed commercial moving service for your business, we\'re ready to build a plan around your specific requirements.'
+        ]
+      }
+    ],
     faqs: [
       {
         question: 'What Is Moving Services?',
