@@ -35,19 +35,40 @@ export default function ServiceDetail() {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-primary via-primary to-secondary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
-            className="absolute top-10 right-10 w-64 h-64 border-4 border-white rounded-full"
-          />
-          <motion.div
-            animate={{ rotate: -360 }}
-            transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-            className="absolute bottom-20 left-20 w-48 h-48 border-4 border-white/50 rounded-full"
-          />
-        </div>
+      <section
+        className="pt-32 pb-20 text-primary-foreground relative overflow-hidden"
+        style={
+          service.image
+            ? { background: 'transparent' }
+            : undefined
+        }
+      >
+        {/* Background: image with dark overlay OR gradient */}
+        {service.image ? (
+          <>
+            <div
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: `url(${service.image})` }}
+            />
+            <div className="absolute inset-0 bg-black/60" />
+          </>
+        ) : (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary" />
+            <div className="absolute inset-0 opacity-10">
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
+                className="absolute top-10 right-10 w-64 h-64 border-4 border-white rounded-full"
+              />
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+                className="absolute bottom-20 left-20 w-48 h-48 border-4 border-white/50 rounded-full"
+              />
+            </div>
+          </>
+        )}
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -67,18 +88,9 @@ export default function ServiceDetail() {
             <h1 className="text-5xl md:text-6xl font-heading font-bold mb-6">
               {service.title}
             </h1>
-            {service.shortDescription.includes('(Reliable') && (
-              <>
-                <p className="text-lg text-primary-foreground/80 mb-4 font-semibold">
-                  {service.shortDescription.split(') ')[0]})
-                </p>
-                <p className="text-xl text-primary-foreground/90">
-                  {service.shortDescription.split(') ').slice(1).join(') ')}
-                </p>
-              </>
-            ) || (
-              <p className="text-xl text-primary-foreground/90">
-                {service.shortDescription}
+            {service.shortDescription.startsWith('(') && (
+              <p className="text-lg text-white/80 font-semibold">
+                {service.shortDescription.split(') ')[0]})
               </p>
             )}
           </motion.div>
@@ -96,20 +108,20 @@ export default function ServiceDetail() {
         </Link>
       </div>
 
-      {/* Featured Image */}
-      {service.image && (
+      {/* Hero Description */}
+      {service.shortDescription && (
         <div className="container mx-auto px-4 pb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="rounded-2xl overflow-hidden shadow-xl max-h-[480px]"
+            className="bg-card rounded-xl p-8 shadow-lg max-w-4xl"
           >
-            <img
-              src={service.image}
-              alt={service.title}
-              className="w-full h-full object-cover"
-            />
+            <p className="text-muted-foreground leading-relaxed text-lg">
+              {service.shortDescription.startsWith('(')
+                ? service.shortDescription.split(') ').slice(1).join(') ')
+                : service.shortDescription}
+            </p>
           </motion.div>
         </div>
       )}
@@ -137,95 +149,117 @@ export default function ServiceDetail() {
                 </motion.div>
               )}
 
-              {service.sections && service.sections.length > 0 && (
-                <div className="space-y-8">
-                  {service.sections.map((section, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: index * 0.05 }}
-                      className="bg-card rounded-xl p-8 shadow-lg"
-                    >
-                      {section.heading && section.level === 3 ? (
-                        <h3 className="text-2xl font-heading font-bold text-primary mb-6">
-                          {section.heading}
-                        </h3>
-                      ) : section.heading ? (
+              {service.sections && service.sections.length > 0 && (() => {
+                // Group H2 sections with their following H3 children into one card
+                type SectionType = typeof service.sections[0];
+                type Group = { parent: SectionType; children: SectionType[] };
+                const groups: Group[] = [];
+                let i = 0;
+                while (i < service.sections.length) {
+                  const sec = service.sections[i];
+                  if (!sec.level || sec.level === 2) {
+                    const children: SectionType[] = [];
+                    let j = i + 1;
+                    while (j < service.sections.length && service.sections[j].level === 3) {
+                      children.push(service.sections[j]);
+                      j++;
+                    }
+                    groups.push({ parent: sec, children });
+                    i = j;
+                  } else {
+                    groups.push({ parent: sec, children: [] });
+                    i++;
+                  }
+                }
+
+                const renderContent = (sec: SectionType) => {
+                  if (!Array.isArray(sec.content)) {
+                    return (
+                      <p className="text-muted-foreground leading-relaxed text-lg">
+                        {sec.content}
+                      </p>
+                    );
+                  }
+                  return sec.content.map((item, pIdx) => {
+                    if (
+                      (sec.heading === 'How the Process Works' ||
+                        sec.heading === 'How the Furniture Assembly Process Works' ||
+                        sec.heading === 'How Our Painting & Decorating Process Works') &&
+                      item.includes('\n')
+                    ) {
+                      const [title, description] = item.split('\n');
+                      return (
+                        <div key={pIdx} className="border-l-4 border-accent pl-6">
+                          <h3 className="text-xl font-heading font-bold text-primary mb-2">{title}</h3>
+                          <p className="text-muted-foreground leading-relaxed">{description}</p>
+                        </div>
+                      );
+                    } else if (sec.heading.startsWith('Why Choose') && item.includes(' – ')) {
+                      const [title, description] = item.split(' – ');
+                      return (
+                        <div key={pIdx} className="flex items-start gap-3">
+                          <CheckCircle className="text-accent flex-shrink-0 mt-1" size={20} />
+                          <div className="flex-1">
+                            <h3 className="text-lg font-semibold text-foreground mb-1">{title}</h3>
+                            {description && (
+                              <p className="text-muted-foreground leading-relaxed">{description}</p>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    } else if (item.startsWith('• ')) {
+                      return (
+                        <div key={pIdx} className="flex items-start gap-3 pl-2">
+                          <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0 mt-3" />
+                          <p className="text-muted-foreground leading-relaxed text-lg">{item.substring(2)}</p>
+                        </div>
+                      );
+                    }
+                    return (
+                      <p key={pIdx} className="text-muted-foreground leading-relaxed text-lg">{item}</p>
+                    );
+                  });
+                };
+
+                return (
+                  <div className="space-y-8">
+                    {groups.map((group, gIdx) => (
+                      <motion.div
+                        key={gIdx}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: gIdx * 0.05 }}
+                        className="bg-card rounded-xl p-8 shadow-lg"
+                      >
+                        {/* Parent H2 heading + content */}
                         <h2 className="text-3xl font-heading font-bold text-primary mb-6">
-                          {section.heading}
+                          {group.parent.heading}
                         </h2>
-                      ) : null}
-                      <div className="space-y-4">
-                        {Array.isArray(section.content) ? section.content.map((item, pIdx) => {
-                          if ((section.heading === 'How the Process Works' || section.heading === 'How the Furniture Assembly Process Works' || section.heading === 'How Our Painting & Decorating Process Works') && item.includes('\n')) {
-                            const [title, description] = item.split('\n');
-                            return (
-                              <div key={pIdx} className="border-l-4 border-accent pl-6">
-                                <h3 className="text-xl font-heading font-bold text-primary mb-2">
-                                  {title}
+                        <div className="space-y-4">
+                          {renderContent(group.parent)}
+                        </div>
+
+                        {/* Child H3 sections inside same card */}
+                        {group.children.length > 0 && (
+                          <div className="mt-8 space-y-8">
+                            {group.children.map((child, cIdx) => (
+                              <div key={cIdx} className="border-t border-border pt-8">
+                                <h3 className="text-2xl font-heading font-bold text-primary mb-4">
+                                  {child.heading}
                                 </h3>
-                                <p className="text-muted-foreground leading-relaxed">
-                                  {description}
-                                </p>
-                              </div>
-                            );
-                          } else if (section.heading.startsWith('Why Choose')) {
-                            const [title, description] = item.split(' – ');
-                            return (
-                              <div key={pIdx} className="flex items-start gap-3">
-                                <CheckCircle className="text-accent flex-shrink-0 mt-1" size={20} />
-                                <div className="flex-1">
-                                  <h3 className="text-lg font-semibold text-foreground mb-1">
-                                    {title}
-                                  </h3>
-                                  {description && (
-                                    <p className="text-muted-foreground leading-relaxed">
-                                      {description}
-                                    </p>
-                                  )}
+                                <div className="space-y-4">
+                                  {renderContent(child)}
                                 </div>
                               </div>
-                            );
-                          } else if (item.startsWith('• ')) {
-                            return (
-                              <div key={pIdx} className="flex items-start gap-3 pl-2">
-                                <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0 mt-3" />
-                                <p className="text-muted-foreground leading-relaxed text-lg">
-                                  {item.substring(2)}
-                                </p>
-                              </div>
-                            );
-                          } else if (section.heading === 'Professional Moving Services') {
-                            if (pIdx === 0) {
-                              return (
-                                <p key={pIdx} className="text-lg font-semibold text-primary mb-3">
-                                  {item}
-                                </p>
-                              );
-                            }
-                            return (
-                              <p key={pIdx} className="text-muted-foreground leading-relaxed text-lg">
-                                {item}
-                              </p>
-                            );
-                          }
-                          return (
-                            <p key={pIdx} className="text-muted-foreground leading-relaxed text-lg">
-                              {item}
-                            </p>
-                          );
-                        }) : (
-                          <p className="text-muted-foreground leading-relaxed text-lg">
-                            {section.content}
-                          </p>
+                            ))}
+                          </div>
                         )}
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              )}
+                      </motion.div>
+                    ))}
+                  </div>
+                );
+              })()}
 
               {!service.sections && (
                 <motion.div

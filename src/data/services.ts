@@ -1,5 +1,5 @@
 import { Home, Package, Wrench, Trees, Paintbrush, Grid, Piano, Sparkles, type LucideIcon } from 'lucide-react';
-import furnitureAssemblyImg3 from '../assets/Furniture Assembly/3.jpeg';
+import furnitureAssemblyImg1 from '../assets/Furniture Assembly/1.jpeg';
 
 export interface Service {
   slug: string;
@@ -375,7 +375,7 @@ export const services: Service[] = [
       'Expert in all major furniture brands',
       'Furniture placement and positioning included'
     ],
-    image: furnitureAssemblyImg3,
+    image: furnitureAssemblyImg1,
     metaTitle: 'Furniture Assembly Services London | Reliant Integrated Services Ltd',
     metaDescription: 'Expert furniture assembly in London. IKEA, office, bedroom, outdoor furniture and more. Professional, fast, reliable service with transparent pricing. Get a quote today.',
     sections: [
@@ -759,6 +759,7 @@ export const services: Service[] = [
       {
         heading: 'How Our Painting & Decorating Process Works',
         content: [
+          'We keep things simple, transparent, and stress-free. Here\'s exactly what to expect when you work with us.',
           'Get in Touch\nStart by reaching out via phone, email, or our online contact form. Tell us a bit about your project, the type of property, the rooms involved, your timeline, and any specific requirements. We respond to all enquiries within 24 hours.',
           'Free Site Survey & Quote\nOne of our experienced painting and decorating contractors will visit your property at a time that suits you. We\'ll assess the surfaces, identify any prep work needed, discuss your vision, and answer any questions you have. Within a few days, you\'ll receive a detailed, itemised quote with no hidden costs and no vague estimates. This is also your chance to ask about our painting and decorating price list for specific services. We believe in full transparency. You\'ll know exactly what you\'re paying for before any work begins.',
           'Colour & Finish Consultation\nNot sure what colours or finishes you want? No problem. We\'ll work through the options with you discussing paint brands, sheen levels, colour palettes, and how different finishes will interact with your specific space. We work with premium brands including Farrow & Ball, Little Greene, and Dulux Trade and we\'ll help you make confident, informed decisions.',
@@ -770,6 +771,7 @@ export const services: Service[] = [
       {
         heading: 'Why Choose Reliant Integrated Services for Painting & Decorating in London',
         content: [
+          'London has no shortage of painting and decorating companies. So why choose us? Here\'s what genuinely sets Reliant Integrated Services apart from the crowd.',
           'Skilled, Vetted Professionals – Every single decorator on our team is thoroughly vetted, fully trained, and experienced across a wide range of property types and decorating techniques. From classic house painting to intricate specialist finishes our team has the expertise to deliver. We don\'t use untrained labourers or cut costs by sending inexperienced operatives to your property. The person who quotes your job is the same calibre of professional who carries it out.',
           'Transparent, Honest Pricing – Hidden charges are one of the most frustrating things about hiring tradespeople. We refuse to operate that way. Our painting and decorating quotes are fully itemised. You\'ll see exactly what each element of the job costs before you commit to anything. Want a rough idea of costs upfront? Ask us about our painting and decorating price list during your initial enquiry. We\'re happy to give ballpark figures so you can plan your budget with confidence.',
           'Obsessive Attention to Detail – Clean lines at every edge. Even coverage across every surface. Consistent sheen without lap marks or streaks. We\'re meticulous and our clients notice the difference immediately. Good enough simply isn\'t our standard. Every job, regardless of size, gets the same level of care and attention.',
@@ -835,47 +837,61 @@ export const services: Service[] = [
     slug: 'flooring',
     icon: Grid,
     title: 'Flooring Services',
-    shortDescription: 'Expert flooring installation, restoration, and maintenance services for residential and commercial properties across London. Reliable, professional, stress-free.',
+    shortDescription: '(Reliable, Expert & Professional Flooring Services) Whether you are refreshing a tired living room, fitting out a brand-new office, or restoring a stunning period property, your floors set the tone for everything. At Reliant Integrated Services, we deliver exceptional flooring services on time, within budget, and to a standard that genuinely speaks for itself. No shortcuts. No filler. Just beautiful, long-lasting floors crafted by people who care deeply about what they do.',
     fullDescription: 'Whether you are refreshing a tired living room, fitting out a brand-new office, or restoring a stunning period property, your floors set the tone for everything. They are the first thing people notice and the last thing most people think to invest in properly. That\'s a mistake and one we help our clients avoid every single day. At Reliant Integrated Services, we\'ve built our reputation on one simple promise: exceptional flooring services delivered on time, within budget, and to a standard that genuinely speaks for itself. No shortcuts. No filler. Just beautiful, long-lasting floors crafted by people who care deeply about what they do. If you\'ve been searching for reliable flooring services near me in London, your search ends here.',
+    image: '/flooring-services-featured.png',
     sections: [
       {
         heading: 'About Our Flooring Services in London',
         content: 'We have been delivering professional flooring services across London for years, working with homeowners, landlords, architects, interior designers, and facility managers. Our team understands that no two projects are the same. A family home in Islington demands something entirely different from a retail unit in Canary Wharf and we approach each project with that understanding front and centre. Our flooring services in London cover everything from initial consultation and material selection right through to final inspection and long-term aftercare. We handle the whole journey so you don\'t have to stress about a thing. Whether it\'s a small residential repair or a large-scale contract flooring services project across multiple commercial sites, Reliant Integrated Services has the experience, the equipment, and the team to get it done right.'
       },
       {
+        heading: 'Our Flooring Services',
+        content: 'Every property is different. That is why our flooring services are designed to flex around your space, your budget, and your vision — not the other way around.'
+      },
+      {
         heading: 'Hardwood & Engineered Wood Flooring',
+        level: 3 as const,
         content: 'Few things rival the warmth and character of real wood underfoot. Solid hardwood and engineered wooden flooring services remain among the most popular choices for London homeowners and for good reason. Wood adds instant elegance, increases property value, and with the right care, it can last generations. We supply and install a wide selection of species including oak, walnut, ash, and maple. Each comes in a range of widths, grades, and finishes from rustic and hand-scraped to sleek and contemporary. Our fitters handle everything from subfloor preparation to final finishing, including staining, oiling, and lacquering to your exact specification.'
       },
       {
         heading: 'Laminate Flooring',
+        level: 3 as const,
         content: 'Looking for a stylish, hardwearing floor that won\'t break the bank? Laminate is your answer. Today\'s laminate options are a far cry from the thin, hollow-sounding products of the early 2000s. Modern laminate mimics the look of real wood and stone with remarkable accuracy and it handles daily wear with ease. It\'s an ideal solution for busy households, rental properties, and commercial spaces that need a fresh, attractive finish without the premium price tag. Fast to install and easy to maintain, laminate ticks a lot of boxes for a lot of people.'
       },
       {
         heading: 'Tile & Stone Flooring',
+        level: 3 as const,
         content: 'There is something undeniably sophisticated about a beautifully tiled floor. Our tile and stone installation service covers ceramic, porcelain, marble, travertine, slate, and a range of other natural stone options. Whether you\'re renovating a bathroom, updating a kitchen, or laying a striking hallway floor, we\'ll make sure every tile is set perfectly. We work with wet rooms, underfloor heating systems, and large-format tiles that require precision levelling and specialist adhesive. Attention to detail matters here and ours is impeccable.'
       },
       {
         heading: 'Vinyl & Luxury Vinyl Tile (LVT) Flooring',
+        level: 3 as const,
         content: 'LVT has taken the flooring world by storm and it\'s not hard to see why. It\'s waterproof, scratch-resistant, comfortable underfoot, and available in designs that convincingly replicate wood, stone, and concrete. It\'s the practical choice that doesn\'t compromise on style. Our professional flooring services include the full LVT installation process from moisture testing and subfloor prep to cutting, fitting, and finishing. LVT works brilliantly in kitchens, bathrooms, hallways, and busy commercial environments. It\'s also a top pick for landlords who need a durable, tenant-proof solution that still looks sharp.'
       },
       {
         heading: 'Timber Flooring Services',
+        level: 3 as const,
         content: 'Our dedicated timber flooring services go beyond simple installation. We work with reclaimed timber, bespoke plank widths, and custom finishes to create genuinely one-of-a-kind floors. Period properties in particular benefit enormously from sympathetically chosen timber that complements the building\'s character rather than clashing with it. From parquet patterns to wide-plank country oak, our timber specialists bring real passion and technical skill to every project. This is where flooring becomes art.'
       },
       {
         heading: 'Floor Sanding & Flooring Restoration Services',
+        level: 3 as const,
         content: 'Got an old hardwood floor buried under layers of paint, varnish, or years of neglect? Don\'t rip it out, restore it. Our flooring restoration services breathe new life into tired, dull, and damaged timber floors that most people would write off entirely. Using dust-free sanding technology, our team removes the old finish to reveal the natural beauty of the wood beneath. We then apply your chosen finish oil, hardwax, varnish, or stain to achieve the exact look you\'re after. The results are genuinely transformative. Floors that looked beyond saving end up looking better than they did on day one. Flooring restoration services are also a far more sustainable choice. Restoring an existing floor uses fewer resources than replacement and produces significantly less waste. It\'s better for your home and better for the planet.'
       },
       {
         heading: 'Commercial & Contract Flooring Services',
+        level: 3 as const,
         content: 'Running a business in London means every day of downtime costs money. Our commercial flooring services are built around that reality. We work with retailers, restaurants, offices, hotels, schools, healthcare facilities, warehouses, and more delivering heavy-duty flooring solutions that can handle serious foot traffic without flinching. Our contract flooring services include epoxy resin floors, safety and anti-slip surfaces, carpet tiles, heavy-duty vinyl, and specialist coatings for industrial environments. We project-manage every contract installation carefully, working around your operational hours to keep disruption to an absolute minimum.'
       },
       {
         heading: 'Flooring Removal Services',
+        level: 3 as const,
         content: 'Before the new floor goes down, the old one has to come up. Our flooring removal services handle the demolition side of things so you don\'t have to worry about it. We safely remove existing carpets, tiles, hardwood, laminate, and vinyl disposing of waste responsibly and preparing the subfloor for whatever comes next. Subfloor condition matters more than most people realise. Damp, uneven, or structurally compromised subfloors are the hidden enemy of any flooring installation. We assess and address these issues before a single plank or tile goes down protecting your investment from the very start.'
       },
       {
         heading: 'Underfloor Heating Installation',
+        level: 3 as const,
         content: 'Cold mornings in London are a fact of life. Underfloor heating changes them entirely. We install both electric and water-based (hydronic) underfloor heating systems, compatible with most of the flooring types we offer including LVT, tile, stone, and engineered wood. It\'s a discreet, energy-efficient way to heat your home that frees up wall space, eliminates radiators, and makes your floors genuinely luxurious to walk on. Pair it with the right flooring choice and you\'ve got a combination that\'s hard to beat.'
       },
       {
@@ -946,8 +962,9 @@ export const services: Service[] = [
   {
     slug: 'landscaping',
     icon: Trees,
+    image: '/landscaping-services-featured.png',
     title: 'Landscaping',
-    shortDescription: 'Expert landscaping services in London. Transform neglected outdoor spaces into something you\'re genuinely proud of. Garden design, lawn care, hard landscaping, and commercial maintenance.',
+    shortDescription: '(Professional Garden Design, Lawn Care & Hard Landscaping) Expert landscaping services in London. Transform neglected outdoor spaces into something you\'re genuinely proud of. Garden design, lawn care, hard landscaping, and commercial maintenance.',
     fullDescription: 'At Reliant Integrated Services, we turn neglected and underwhelming outdoor spaces into something you are genuinely proud of. Whether you are searching for landscaping near me in Central London or need full-scale commercial landscaping services across multiple sites, we\'ve got the skills, the team, and the local knowledge to deliver. This isn\'t just about making things look pretty. It\'s about adding real value to your property, improving how you experience your outdoor space every single day, and getting the job done right the first time.',
     sections: [
       {
@@ -960,30 +977,37 @@ export const services: Service[] = [
       },
       {
         heading: 'Garden Design & Planning',
+        level: 3,
         content: 'Every great garden starts with a great plan. Our design process begins with listening to what you want, how you live, and what you love. Then we translate that into a practical, beautiful design tailored specifically to your space. We consider everything. Sun direction. Soil type. Drainage. How you actually use the garden. Whether you want low maintenance or something more elaborate. The result is a design that doesn\'t just look good on paper. It works brilliantly in real life.'
       },
       {
         heading: 'Lawn Care & Maintenance',
+        level: 3,
         content: 'A healthy lawn doesn\'t happen by accident. It takes the right cutting height, the right feeding schedule, the right aeration technique. Our lawn care team keeps your grass dense, green, and enviable all year round. We offer one-off treatments and regular maintenance packages whatever suits your schedule and budget.'
       },
       {
         heading: 'Hard Landscaping',
+        level: 3,
         content: 'This is where gardens get their bones. Patios, garden walls, pathways, driveways, steps, raised beds—hard landscaping gives your outdoor space structure and permanence. Done badly, it looks cheap and falls apart. Done well, it lasts decades and completely elevates the space. Our hard landscaping team works with a wide range of materials—natural stone, porcelain, brick, gravel, timber—and brings proper craftsmanship to every project.'
       },
       {
         heading: 'Planting & Soft Landscaping',
+        level: 3,
         content: 'Plants are where gardens come alive. But choosing the right ones, the right species for your soil, your light conditions, your desired look takes real knowledge. Planting the wrong thing in the wrong place is one of the most common (and costly) mistakes homeowners make. Our planting experts select and install shrubs, perennials, hedging, seasonal bedding, and statement plants that genuinely thrive in your garden.'
       },
       {
         heading: 'Irrigation & Drainage Systems',
+        level: 3,
         content: 'A stunning garden can fail completely without proper water management. Whether it\'s installing a smart irrigation system that keeps your planting hydrated without waste or solving a chronic waterlogging problem that\'s been killing your lawn for years, we\'ve got the technical skills to fix it properly. Water-wise planting and efficient irrigation are increasingly important in London\'s changing climate. We design systems that are as sustainable as they are effective.'
       },
       {
         heading: 'Seasonal Garden Clearance',
+        level: 3,
         content: 'Autumn arrives fast in London. Before you know it, the garden\'s buried under leaves, overgrown with summer growth, and completely unprepared for winter. Our seasonal clearance service gets everything tidied, cut back, and ready so come spring, your garden bounces back looking brilliant.'
       },
       {
         heading: 'Commercial Landscaping Services',
+        level: 3,
         content: 'Commercial landscaping is a completely different animal from residential garden work. The scale is bigger. The standards are higher. The scheduling demands are tighter. And the stakes for businesses, developers, and property managers are real. Reliant Integrated Services delivers professional commercial landscaping services to offices, retail spaces, housing developments, schools, and public sector sites across all of Greater London.'
       },
       {
@@ -1051,20 +1075,28 @@ export const services: Service[] = [
   {
     slug: 'cleaning',
     icon: Sparkles,
+    image: '/cleaning-services-featured.png',
     title: 'Cleaning',
     shortDescription: 'Professional cleaning services for residential and commercial spaces. Fully vetted, trained teams using eco-friendly products. Book reliable cleaning services in London today.',
     fullDescription: 'At Reliant Integrated Services, we deliver premium cleaning services in London for homes, offices, schools, and everything in between. Our team of fully vetted, trained professionals shows up on time, works efficiently, and leaves your space looking and feeling genuinely clean. Whether you are searching for cleaning services near me, need a one-off deep clean, or want a reliable team for regular visits, we\'ve built our entire service around one goal: making your life easier. We have been serving London homes and businesses for years, covering everything from Chelsea townhouses to Canary Wharf offices. Our cleaners aren\'t just handed a mop and pointed at a room. They are trained, supervised, and held to a detailed quality checklist on every single job. Every team member is DBS-checked, reference-verified, and fully insured. You\'re not just letting a stranger into your space. You\'re welcoming a trusted professional who takes their work seriously. We use professional cleaning techniques paired with eco-friendly, non-toxic products. So you get a spotless result that\'s safe for your children, your pets, and the environment.',
     sections: [
       {
+        heading: 'Residential Cleaning Services',
+        content: 'Your home deserves a clean that goes deeper than a quick once-over. Whether you need a regular weekly visit or a one-off deep clean, our residential cleaning team delivers consistent, professional results every time. Every cleaner is DBS-checked, reference-verified, and trained to follow a detailed quality checklist on every job.'
+      },
+      {
         heading: 'Regular Domestic Cleaning',
+        level: 3 as const,
         content: 'Consistency is everything. Our regular house cleaning services keep your home in top condition week after week, without you having to think about it. Choose from weekly, fortnightly, or monthly visits. Your dedicated cleaner learns your home, your preferences, and your routine. Over time, they become a genuinely trusted part of your household. What\'s included: Vacuuming and mopping all floors, Kitchen and bathroom sanitisation, Dusting surfaces, shelves, and furniture, Tidying and organising as directed, Emptying bins and replacing liners, Cleaning mirrors and glass surfaces.'
       },
       {
         heading: 'Deep Cleaning Services',
+        level: 3 as const,
         content: 'Sometimes a regular clean just won\'t cut it. If your property has not had a thorough going-over in a while or you\'re preparing for a special occasion our deep cleaning services are exactly what you need. Our teams go beyond the surface. Behind appliances. Inside cupboards. Under furniture. Every corner, every crevice, every forgotten spot gets the attention it deserves. Deep cleaning services in London from Reliant are ideal for: Spring cleans and seasonal refreshes, Moving into a new property, Post-party or post-event clean-ups, Preparing a property for sale or rental, Any home that needs a serious reset.'
       },
       {
         heading: 'End of Tenancy Cleaning',
+        level: 3 as const,
         content: 'Moving out is stressful enough without worrying about your deposit. Our end of tenancy cleaning service is designed to meet and exceed the expectations of even the most demanding landlords and letting agencies. We follow a comprehensive checklist that covers every room, every appliance, and every surface. Skirting boards, oven interiors, extractor fans, nothing gets skipped. Many of our clients recover their full deposit after using this service. That\'s not a coincidence. It\'s the result of a meticulous, professional clean that genuinely ticks every box.'
       },
       {
@@ -1073,26 +1105,36 @@ export const services: Service[] = [
       },
       {
         heading: 'Office Cleaning Services',
+        level: 3 as const,
         content: 'First impressions count. A cluttered, dusty office sends a message and it\'s not a good one. Our office cleaning services keep your workspace consistently professional, hygienic, and welcoming. We handle everything from desk surfaces and communal kitchens to toilets, reception areas, and meeting rooms. Your employees deserve a clean environment. Your clients deserve to see one. We work with businesses of all sizes from small startups to large corporate headquarters and we treat everyone with the same level of care and attention.'
       },
       {
         heading: 'School Cleaning Services',
+        level: 3 as const,
         content: 'Schools present a unique challenge. High footfall, shared spaces, and the health of hundreds of children all demand a cleaning approach that goes beyond the basics. Our school cleaning services are thorough, safe, and compliant with all relevant hygiene standards. We use child-safe, non-toxic products throughout and follow detailed protocols for classrooms, corridors, canteens, toilets, and sports facilities. Headteachers and facilities managers across London trust us to maintain a clean, healthy learning environment. Because when children are comfortable and safe, they learn better. It\'s that simple.'
       },
       {
+        heading: 'Specialist Cleaning Services',
+        content: 'Some surfaces and spaces need more than a standard clean. Our specialist cleaning services tackle the jobs that demand professional equipment, expert technique, and proven methods. Whether it\'s embedded carpet grime, upholstery wear, grimy windows, or post-construction debris, our trained teams have the tools and knowledge to restore any surface to its best.'
+      },
+      {
         heading: 'Carpet Cleaning Services',
+        level: 3 as const,
         content: 'Carpets take a beating. Foot traffic, spills, pet hair, and years of embedded grime can make even a quality carpet look tired and worn. Our carpet cleaning services bring them back to life. We use hot water extraction and dry cleaning methods depending on your carpet type and condition. The result is a deep, thorough clean that lifts stains, removes allergens, and restores colour and texture. Regular professional carpet cleaning also extends the lifespan of your flooring — which means better value for money in the long run.'
       },
       {
         heading: 'Sofa Cleaning Services',
+        level: 3 as const,
         content: 'Your sofa sees more daily use than almost any other piece of furniture in your home. And it shows. Oils from skin, food residue, dust mites, and general wear leave their mark over time. Our sofa cleaning services use gentle but highly effective methods to deep-clean upholstery without damaging fabric or structure. From fabric sofas to leather suites, we treat every piece with the care it deserves.'
       },
       {
         heading: 'Window Cleaning Services',
+        level: 3 as const,
         content: 'Streaky windows make even a beautiful property look neglected. Our window cleaning services deliver a crystal-clear, streak-free finish on both interior and exterior glass. We use purified water-fed pole systems for exterior windows, which are not only highly effective but also completely safe, no ladders, no risk, no disruption to your day. For interior windows, our team works carefully and methodically, leaving every pane spotless.'
       },
       {
         heading: 'After Builders Cleaning',
+        level: 3 as const,
         content: 'Post-renovation spaces are a different kind of mess. Plaster dust, paint splatter, adhesive residue, sawdust. It gets everywhere. Standard cleaning just doesn\'t touch it. Our after builders cleaning team specialises in exactly this. We tackle the kind of deep, stubborn grime that construction work leaves behind and transform your newly renovated space into something you can actually enjoy.'
       }
     ],
