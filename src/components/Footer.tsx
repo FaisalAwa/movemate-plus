@@ -70,15 +70,15 @@ export const Footer = () => {
           {/* Services */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Our Services</h4>
-            <ul className="space-y-2 text-primary-foreground/80">
-              <li>Moving Services</li>
-              <li>Packing Services</li>
-              <li>Furniture Assembly</li>
-              <li>Piano & Special Items</li>
-              <li>Painting & Decorating</li>
-              <li>Flooring Services</li>
-              <li>Landscaping</li>
-              <li>Cleaning</li>
+            <ul className="space-y-2">
+              <li><Link to="/services/moving/" className="text-primary-foreground/80 hover:text-accent smooth-transition">Moving Services</Link></li>
+              <li><Link to="/services/packing/" className="text-primary-foreground/80 hover:text-accent smooth-transition">Packing Services</Link></li>
+              <li><Link to="/services/furniture-assembly/" className="text-primary-foreground/80 hover:text-accent smooth-transition">Furniture Assembly</Link></li>
+              <li><Link to="/services/piano-special-items/" className="text-primary-foreground/80 hover:text-accent smooth-transition">Piano & Special Items</Link></li>
+              <li><Link to="/services/painting-decorating/" className="text-primary-foreground/80 hover:text-accent smooth-transition">Painting & Decorating</Link></li>
+              <li><Link to="/services/flooring/" className="text-primary-foreground/80 hover:text-accent smooth-transition">Flooring Services</Link></li>
+              <li><Link to="/services/landscaping/" className="text-primary-foreground/80 hover:text-accent smooth-transition">Landscaping</Link></li>
+              <li><Link to="/services/cleaning/" className="text-primary-foreground/80 hover:text-accent smooth-transition">Cleaning</Link></li>
             </ul>
           </div>
 
