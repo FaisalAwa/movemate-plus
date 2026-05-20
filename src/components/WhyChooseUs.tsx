@@ -62,7 +62,7 @@ export const WhyChooseUs = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-3">Why Choose Us</p>
+          <p className="font-display text-xs font-semibold tracking-widest uppercase text-accent mb-3">Why Choose Us</p>
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
             The Reliant <span className="text-accent">Difference</span>
           </h2>

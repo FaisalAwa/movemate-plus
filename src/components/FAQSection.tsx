@@ -49,7 +49,7 @@ export const FAQSection = () => {
           viewport={{ once: true }}
           className="mb-10"
         >
-          <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-3">
+          <p className="font-display text-xs font-semibold tracking-widest uppercase text-accent mb-3">
             Common Questions
           </p>
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary">

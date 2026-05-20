@@ -60,7 +60,7 @@ export const OurWork = () => {
           className="flex items-end justify-between mb-8"
         >
           <div>
-            <p className="text-xs font-semibold tracking-widest uppercase text-accent mb-3">
+            <p className="font-display text-xs font-semibold tracking-widest uppercase text-accent mb-3">
               Our Work
             </p>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">

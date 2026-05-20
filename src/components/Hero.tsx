@@ -53,7 +53,7 @@ export const Hero = () => {
             transition={{ duration: 0.6 }}
             className="mb-5"
           >
-            <span className="text-accent font-semibold tracking-widest text-sm uppercase">
+            <span className="font-display text-accent font-semibold tracking-widest text-sm uppercase">
               London's Trusted Moving Specialists
             </span>
           </motion.div>
